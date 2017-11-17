@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>热销基金</title>
+    <link rel="stylesheet" href="hotfund.css">
+</head>
+<body>
+@@include('templates/market-header.html', {
+"navon0": "","navon1": "","navon2": "","navon3": "on","navon4": "","navon5": ""
+})
+<div class="banner"></div>
+<div class="catelist">
+    <p class="c-title">销量冠军排行榜</p>
+    <div class="c-list">
+        <ul>
+            <li class="gpx" id="gpx">
+                <p class="title"></p>
+                <div class="content">
+                    <a href="###" target="_blank" class="name" title="">--</a>
+                    <p class="percent"><span>--</span></p>
+                    <p class="unit">近1年收益</p>
+                    <p class="button"><a href="###" target="_blank"></a></p>
+                </div>
+            </li>
+            <li class="hhx" id="hhx">
+                <p class="title"></p>
+                <div class="content">
+                    <a href="###" target="_blank" class="name" title="">--</a>
+                    <p class="percent"><span>--</span></p>
+                    <p class="unit">近1年收益</p>
+                    <p class="button"><a href="###" target="_blank"></a></p>
+                </div>
+            </li>
+            <li class="zqx" id="zqx">
+                <p class="title"></p>
+                <div class="content">
+                    <a href="###" target="_blank" class="name" title="">--</a>
+                    <p class="percent"><span>--</span></p>
+                    <p class="unit">近1年收益</p>
+                    <p class="button"><a href="###" target="_blank"></a></p>
+                </div>
+            </li>
+            <li class="qdii" id="qdii">
+                <p class="title"></p>
+                <div class="content">
+                    <a href="###" target="_blank" class="name" title="">--</a>
+                    <p class="percent"><span>--</span></p>
+                    <p class="unit">近1年收益</p>
+                    <p class="button"><a href="###" target="_blank"></a></p>
+                </div>
+            </li>
+            <li class="hbx" id="hbx">
+                <p class="title"></p>
+                <div class="content">
+                    <a href="###" target="_blank" class="name" title="">--</a>
+                    <p class="percent"><span>--</span></p>
+                    <p class="unit">七日年化收益</p>
+                    <p class="button"><a href="###" target="_blank"></a></p>
+                </div>
+            </li>
+            <li class="clear"></li>
+        </ul>
+    </div>
+</div>
+<div class="flist fmonth" id="monthList" data-key="month">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w65 mr20">排名</li>
+            <li class="w135 mr15 tal">基金名称/代码</li>
+            <li class="w65 tal">基金类型</li>
+            <li class="w58 ml10 sort" data-key="month">近1月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="tmonth">近3月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="hyear">近6月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="year">近1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w46 ml10 sort" data-key="sgfl">费率 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w73 ml10 mr30 sort" data-key="zdsg">起购金额 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+        </div>
+    </div>
+</div>
+<div class="flist fgpx" id="gpxList" data-key="gpx">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w65 mr20">排名</li>
+            <li class="w135 mr15 tal">基金名称/代码</li>
+            <li class="w65 tal">基金类型</li>
+            <li class="w58 ml10 sort" data-key="month">近1月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="tmonth">近3月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="hyear">近6月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="year">近1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w46 ml10 sort" data-key="sgfl">费率 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w73 ml10 mr30 sort" data-key="zdsg">起购金额 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+        </div>
+    </div>
+</div>
+<div class="flist fhhx" id="hhxList" data-key="hhx">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w65 mr20">排名</li>
+            <li class="w135 mr15 tal">基金名称/代码</li>
+            <li class="w65 tal">基金类型</li>
+            <li class="w58 ml10 sort" data-key="month">近1月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="tmonth">近3月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="hyear">近6月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="year">近1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w46 ml10 sort" data-key="sgfl">费率 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w73 ml10 mr30 sort" data-key="zdsg">起购金额 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+        </div>
+    </div>
+</div>
+<div class="flist fzqx" id="zqxList" data-key="zqx">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w65 mr20">排名</li>
+            <li class="w135 mr15 tal">基金名称/代码</li>
+            <li class="w65 tal">基金类型</li>
+            <li class="w58 ml10 sort" data-key="month">近1月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="tmonth">近3月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="hyear">近6月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="year">近1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w46 ml10 sort" data-key="sgfl">费率 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w73 ml10 mr30 sort" data-key="zdsg">起购金额 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+        </div>
+    </div>
+</div>
+<div class="flist fqdii" id="qdiiList" data-key="qdii">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w65 mr20">排名</li>
+            <li class="w135 mr15 tal">基金名称/代码</li>
+            <li class="w65 tal">基金类型</li>
+            <li class="w58 ml10 sort" data-key="month">近1月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="tmonth">近3月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="hyear">近6月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="year">近1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w46 ml10 sort" data-key="sgfl">费率 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w73 ml10 mr30 sort" data-key="zdsg">起购金额 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+        </div>
+    </div>
+</div>
+<div class="flist fhbx" id="hbxList" data-key="hbx">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w65 mr20">排名</li>
+            <li class="w135 mr15 tal">基金名称/代码</li>
+            <li class="w65 tal">基金类型</li>
+            <li class="w58 ml10 sort" data-key="nhsy">七日年化 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="tmonth">近3月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="hyear">近6月 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w49 ml20 sort" data-key="year">近1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w46 ml10 sort" data-key="sgfl">费率 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w73 ml10 mr30 sort" data-key="zdsg">起购金额 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+        </div>
+    </div>
+</div>
+<div class="risktip">
+    <p>风险提示：投资有风险。基金的过往业绩并不预示其未来表现。基金管理人管理的其他基金的业绩并不构成基金业绩表现的保证。</p>
+    <p>相关数据仅供参考，不构成投资建议。投资人请详阅基金合同和基金招募说明书，并自行承担投资风险。</p>
+</div>
+@@include('templates/menu.html')
+<div class="footer-box">
+    <div class="con">
+        @@include('../common/tpls/footer.html')
+    </div>
+</div>
+<script type="text/javascript"
+        src="//s.thsi.cn/cb?js/;jquery-1.8.3.min.js;jquery.cookie.min.js;ta.min.js;sso.min.js;thsLogin.min.js;ijijin/fundClientPC/js/;mustache.min.js"></script>
+<script type="text/javascript" src="//s.thsi.cn/cb?/js/ifund/home/3.0/require.js" data-main="hotfund.js"></script>
+</body>
+</html>

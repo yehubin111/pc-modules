@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基金选购</title>
+    <link rel="stylesheet" href="selectfund.css">
+</head>
+<body>
+@@include('templates/market-header.html', {
+"navon0": "","navon1": "on","navon2": "","navon3": "","navon4": "","navon5": ""
+})
+<div class="banner"></div>
+<div class="filtrate">
+    <ul class="f-title" id="impTab">
+        <li class="on" data-key="all" data-taid="all">全部</li>
+        <li data-key="gpx" data-taid="gpx">股票型</li>
+        <li data-key="hhx" data-taid="hhx">混合型</li>
+        <li data-key="zqx" data-taid="zqx">债券型</li>
+        <li data-key="gpx" data-taid="gpx">货币型</li>
+        <li data-key="hhx" data-taid="hhx">保本型</li>
+        <li data-key="lcx" data-taid="lcx">理财型</li>
+        <li data-key="etf" data-taid="ETF">ETF</li>
+        <li data-key="qdii" data-taid="QDII">QDII</li>
+        <li data-key="lof" data-taid="lof">LOF</li>
+    </ul>
+    <div class="f-select">
+        <span class="title">您已选择：</span>
+        <ul class="condition" id="alreadySelect">
+            <li class="default" style="display: block;">您尚未设定筛选条件</li>
+        </ul>
+        <span class="clean" id="cleanAll">清除所有筛选条件</span>
+        <div class="clear"></div>
+    </div>
+    <div class="f-filt f-style">
+        <span class="title">基金业绩：</span>
+        <ul class="condition" id="dateSelect">
+            <li class="limit on">不限</li>
+            <li><span>今年来</span>
+                <div class="list" style="display: none;">
+                    <p data-key="nowyear_10">前10%</p>
+                    <p data-key="nowyear_25">前25%</p>
+                    <p data-key="nowyear_50">前50%</p>
+                </div>
+            </li>
+            <li><span>近一周</span>
+                <div class="list" style="display: none;">
+                    <p data-key="week_10">前10%</p>
+                    <p data-key="week_25">前25%</p>
+                    <p data-key="week_50">前50%</p>
+                </div>
+            </li>
+            <li><span>近一月</span>
+                <div class="list" style="display: none;">
+                    <p data-key="month_10">前10%</p>
+                    <p data-key="month_25">前25%</p>
+                    <p data-key="month_50">前50%</p>
+                </div>
+            </li>
+            <li><span>近三月</span>
+                <div class="list" style="display: none;">
+                    <p data-key="tmonth_10">前10%</p>
+                    <p data-key="tmonth_25">前25%</p>
+                    <p data-key="tmonth_50">前50%</p>
+                </div>
+            </li>
+            <li><span>近半年</span>
+                <div class="list" style="display: none;">
+                    <p data-key="hyear_10">前10%</p>
+                    <p data-key="hyear_25">前25%</p>
+                    <p data-key="hyear_50">前50%</p>
+                </div>
+            </li>
+            <li><span>近一年</span>
+                <div class="list" style="display: none;">
+                    <p data-key="year_10">前10%</p>
+                    <p data-key="year_25">前25%</p>
+                    <p data-key="year_50">前50%</p>
+                </div>
+            </li>
+            <li><span>近两年</span>
+                <div class="list" style="display: none;">
+                    <p data-key="twoyear_10">前10%</p>
+                    <p data-key="twoyear_25">前25%</p>
+                    <p data-key="twoyear_50">前50%</p>
+                </div>
+            </li>
+            <li><span>近三年</span>
+                <div class="list" style="display: none;">
+                    <p data-key="tyear_10">前10%</p>
+                    <p data-key="tyear_25">前25%</p>
+                    <p data-key="tyear_50">前50%</p>
+                </div>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="f-filt f-style">
+        <span class="title">基金评级：</span>
+        <ul class="condition" id="gradeSelect">
+            <li class="limit on">不限</li>
+            <li class="style">银河</li>
+            <li class="style">海通</li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="f-filt f-company">
+        <span class="title">基金公司：</span>
+        <ul class="condition" id="companySelect">
+            <li class="limit on">不限</li>
+            <li class="letter">A</li>
+            <li class="letter">B</li>
+            <li class="letter">C</li>
+            <li class="letter">D</li>
+            <li class="letter">F</li>
+            <li class="letter">G</li>
+            <li class="letter">H</li>
+            <li class="letter">J</li>
+            <li class="letter">M</li>
+            <li class="letter">N</li>
+            <li class="letter">P</li>
+            <li class="letter">Q</li>
+            <li class="letter">R</li>
+            <li class="letter">S</li>
+            <li class="letter">T</li>
+            <li class="letter">W</li>
+            <li class="letter">X</li>
+            <li class="letter">Y</li>
+            <li class="letter">Z</li>
+        </ul>
+        <div class="companylist" id="companyList" style="display: block;"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="f-filt f-strong">
+        <span class="title">重仓股票：</span>
+        <ul class="condition" id="strongSelect">
+            <li class="limit on">不限</li>
+            <li class="strong">
+                <input type="text" placeholder="请输入股票型代码/名称/拼音">
+            </li>
+            <li class="strong">
+                <input type="text" placeholder="请输入股票型代码/名称/拼音">
+            </li>
+            <li class="strong">
+                <input type="text" placeholder="请输入股票型代码/名称/拼音">
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <div class="f-filt f-classify">
+        <span class="title">基金分类：</span>
+        <ul class="condition" id="classifySelect">
+            <li class="limit on">不限</li>
+            <li><span>投资风格</span>
+                <div class="list" style="display: none;">
+                    <p data-key="nowyear_10">前10%</p>
+                    <p data-key="nowyear_25">前25%</p>
+                    <p data-key="nowyear_50">前50%</p>
+                </div>
+            </li>
+            <li><span>单位净值</span>
+                <div class="list" style="display: none;">
+                    <p data-key="week_10">前10%</p>
+                    <p data-key="week_25">前25%</p>
+                    <p data-key="week_50">前50%</p>
+                </div>
+            </li>
+            <li><span>累计净值</span>
+                <div class="list" style="display: none;">
+                    <p data-key="month_10">前10%</p>
+                    <p data-key="month_25">前25%</p>
+                    <p data-key="month_50">前50%</p>
+                </div>
+            </li>
+            <li><span>基金规模</span>
+                <div class="list" style="display: none;">
+                    <p data-key="tmonth_10">前10%</p>
+                    <p data-key="tmonth_25">前25%</p>
+                    <p data-key="tmonth_50">前50%</p>
+                </div>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <i class="f-line" id="fLine"></i>
+</div>
+<div class="datalist">
+    <div class="tip" id="resultTip">
+        <p class="d-total">共筛选到 <span>3150</span> 只符合条件的基金</p>
+        <!--<p class="d-date">数据更新至：&#45;&#45;</p>-->
+    </div>
+    <ul class="ttlist" id="sortList">
+        <li class="width134">基金名称/代码</li>
+        <li class="width85">基金类型</li>
+        <li class="width63 select">单位净值 <i class="selectdown"></i>
+
+        </li>
+        <li class="width58 sort">日增长率 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="week">近1周 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="month">近1月 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort s-down" data-key="tmonth">近3月 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="year">近1年 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="tyear">近3年 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="sgfl">费率 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width73 sort" data-key="zdsg">起购金额 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width106">操作</li>
+    </ul>
+    <div class="data" id="resultList">
+        <ul>
+            <li class="width134 lh24"><a href="//fund.10jqka.com.cn/470028" data-code="470028" target="_blank"
+                                         class="name" title="汇添富社会责任混合">汇添富社会责任混合汇添富社会责任混合</a>
+                <p class="code">470028</p></li>
+            <li class="width85 lh24"><p class="type">混合型</p>
+                <p class="risk">中高风险</p></li>
+            <li class="width85 lh24 mr10"><p class="num">2.1020</p>
+                <p class="date">2017-11-01</p></li>
+            <li class="width66 "><p class="up">5.95%</p></li>
+            <li class="width66 bold"><p class="up">25.57%</p></li>
+            <li class="width66 "><p class="up">38.29%</p></li>
+            <li class="width66 "><p class="up">20.46%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p>0.02%</p></li>
+            <li class="width81 "><p>0.02%</p></li>
+            <li class="star on" data-code="470028"></li>
+            <li class="width106"><p class="button"><a class="buy" target="_blank"
+                                                      href="https://trade.5ifund.com/pc/buy/buy.html?frm=hd_d3&amp;fundCode=470028"
+                                                      data-code="470028">购买</a><a class="dt" target="_blank"
+                                                                                  href="https://trade.5ifund.com/pc/plan/new.html?frm=hd_d3&amp;fundCode=470028"
+                                                                                  data-code="470028">定投</a></p></li>
+        </ul>
+        <ul>
+            <li class="width134 lh24"><a href="//fund.10jqka.com.cn/470028" data-code="470028" target="_blank"
+                                         class="name" title="汇添富社会责任混合">汇添富社会责任混合汇添富社会责任混合</a>
+                <p class="code">470028</p></li>
+            <li class="width85 lh24"><p class="type">混合型</p>
+                <p class="risk">中高风险</p></li>
+            <li class="width85 lh24 mr10"><p class="num">2.1020</p>
+                <p class="date">2017-11-01</p></li>
+            <li class="width66 "><p class="up">5.95%</p></li>
+            <li class="width66 bold"><p class="up">25.57%</p></li>
+            <li class="width66 "><p class="up">38.29%</p></li>
+            <li class="width66 "><p class="up">20.46%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p>0.02%</p></li>
+            <li class="width81 "><p>0.02%</p></li>
+            <li class="star on" data-code="470028"></li>
+            <li class="width106"><p class="button"><a class="buy" target="_blank"
+                                                      href="https://trade.5ifund.com/pc/buy/buy.html?frm=hd_d3&amp;fundCode=470028"
+                                                      data-code="470028">购买</a><a class="dt" target="_blank"
+                                                                                  href="https://trade.5ifund.com/pc/plan/new.html?frm=hd_d3&amp;fundCode=470028"
+                                                                                  data-code="470028">定投</a></p></li>
+        </ul>
+        <ul>
+            <li class="width134 lh24"><a href="//fund.10jqka.com.cn/470028" data-code="470028" target="_blank"
+                                         class="name" title="汇添富社会责任混合">汇添富社会责任混合汇添富社会责任混合</a>
+                <p class="code">470028</p></li>
+            <li class="width85 lh24"><p class="type">混合型</p>
+                <p class="risk">中高风险</p></li>
+            <li class="width85 lh24 mr10"><p class="num">2.1020</p>
+                <p class="date">2017-11-01</p></li>
+            <li class="width66 "><p class="up">5.95%</p></li>
+            <li class="width66 bold"><p class="up">25.57%</p></li>
+            <li class="width66 "><p class="up">38.29%</p></li>
+            <li class="width66 "><p class="up">20.46%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p>0.02%</p></li>
+            <li class="width81 "><p>0.02%</p></li>
+            <li class="star on" data-code="470028"></li>
+            <li class="width106"><p class="button"><a class="buy" target="_blank"
+                                                      href="https://trade.5ifund.com/pc/buy/buy.html?frm=hd_d3&amp;fundCode=470028"
+                                                      data-code="470028">购买</a><a class="dt" target="_blank"
+                                                                                  href="https://trade.5ifund.com/pc/plan/new.html?frm=hd_d3&amp;fundCode=470028"
+                                                                                  data-code="470028">定投</a></p></li>
+        </ul>
+        <ul>
+            <li class="width134 lh24"><a href="//fund.10jqka.com.cn/470028" data-code="470028" target="_blank"
+                                         class="name" title="汇添富社会责任混合">汇添富社会责任混合汇添富社会责任混合</a>
+                <p class="code">470028</p></li>
+            <li class="width85 lh24"><p class="type">混合型</p>
+                <p class="risk">中高风险</p></li>
+            <li class="width85 lh24 mr10"><p class="num">2.1020</p>
+                <p class="date">2017-11-01</p></li>
+            <li class="width66 "><p class="up">5.95%</p></li>
+            <li class="width66 bold"><p class="up">25.57%</p></li>
+            <li class="width66 "><p class="up">38.29%</p></li>
+            <li class="width66 "><p class="up">20.46%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p>0.02%</p></li>
+            <li class="width81 "><p>0.02%</p></li>
+            <li class="star on" data-code="470028"></li>
+            <li class="width106"><p class="button"><a class="buy" target="_blank"
+                                                      href="https://trade.5ifund.com/pc/buy/buy.html?frm=hd_d3&amp;fundCode=470028"
+                                                      data-code="470028">购买</a><a class="dt" target="_blank"
+                                                                                  href="https://trade.5ifund.com/pc/plan/new.html?frm=hd_d3&amp;fundCode=470028"
+                                                                                  data-code="470028">定投</a></p></li>
+        </ul>
+        <ul>
+            <li class="width134 lh24"><a href="//fund.10jqka.com.cn/470028" data-code="470028" target="_blank"
+                                         class="name" title="汇添富社会责任混合">汇添富社会责任混合汇添富社会责任混合</a>
+                <p class="code">470028</p></li>
+            <li class="width85 lh24"><p class="type">混合型</p>
+                <p class="risk">中高风险</p></li>
+            <li class="width85 lh24 mr10"><p class="num">2.1020</p>
+                <p class="date">2017-11-01</p></li>
+            <li class="width66 "><p class="up">5.95%</p></li>
+            <li class="width66 bold"><p class="up">25.57%</p></li>
+            <li class="width66 "><p class="up">38.29%</p></li>
+            <li class="width66 "><p class="up">20.46%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p class="up">75.02%</p></li>
+            <li class="width66 "><p>0.02%</p></li>
+            <li class="width81 "><p>0.02%</p></li>
+            <li class="star on" data-code="470028"></li>
+            <li class="width106"><p class="button"><a class="buy" target="_blank"
+                                                      href="https://trade.5ifund.com/pc/buy/buy.html?frm=hd_d3&amp;fundCode=470028"
+                                                      data-code="470028">购买</a><a class="dt" target="_blank"
+                                                                                  href="https://trade.5ifund.com/pc/plan/new.html?frm=hd_d3&amp;fundCode=470028"
+                                                                                  data-code="470028">定投</a></p></li>
+        </ul>
+    </div>
+    <div class="pageturn" id="pageturn"></div>
+    <!--</p>-->
+</div>
+<div class="risktip">
+    <p>风险提示：投资有风险。基金的过往业绩并不预示其未来表现。基金管理人管理的其他基金的业绩并不构成基金业绩表现的保证。</p>
+    <p>相关数据仅供参考，不构成投资建议。投资人请详阅基金合同和基金招募说明书，并自行承担投资风险。</p>
+</div>
+@@include('templates/menu.html')
+<div class="footer-box">
+    <div class="con">
+        @@include('../common/tpls/footer.html')
+    </div>
+</div>
+<script type="text/javascript"
+        src="//s.thsi.cn/cb?js/;jquery-1.8.3.min.js;jquery.cookie.min.js;ta.min.js;sso.min.js;thsLogin.min.js;ijijin/fundClientPC/js/;mustache.min.js"></script>
+<script type="text/javascript" src="//s.thsi.cn/cb?/js/ifund/home/3.0/require.js" data-main="selectfund.js"></script>
+</body>
+</html>

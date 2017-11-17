@@ -1,0 +1,117 @@
+@import "calculator.less";
+.menu{
+  position: absolute;
+  left: 50%;
+  margin-left: 605px;
+  //bottom: 50px;
+  font-size: 12px;
+  top: 553px;
+  a{
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-color: @white;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 6px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px #c3c3c3;
+    position: relative;
+    .icon{
+      width: 40px;
+      height: 40px;
+      display: block;
+      position: absolute;
+      top: 0;
+      background-color: @white;
+      i{
+        width: 40px;
+        height: 40px;
+        display: block;
+      }
+    }
+    .font{
+      background-color: @red-stepe9;
+      color: @white;
+      text-align: center;
+      line-height: 16px;
+      padding: 4px 6px;
+      position: absolute;
+      top: 40px;
+      width: 28px;
+    }
+    &.menu1{
+      .icon{
+        i{
+          background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/menu1.png) 0 0 no-repeat;
+        }
+      }
+    }
+    &.menu2{
+      .icon{
+        i{
+          background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/menu2.png) 0 0 no-repeat;
+        }
+      }
+    }
+    &.menu3{
+      .icon{
+        i{
+          background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/menu3.png) 0 0 no-repeat;
+        }
+      }
+    }
+    &.menu4{
+      .icon{
+        i{
+          background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/menu4.png) 0 0 no-repeat;
+        }
+      }
+    }
+    &.menu5{
+      .icon{
+        i{
+          background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/menu5.png) 0 0 no-repeat;
+        }
+      }
+    }
+    &.gototop{
+      background-color: @gray-stepf6;
+      .icon{
+        background-color: @gray-stepf6;
+        i{
+          background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/menu6.png) 0 0 no-repeat;
+        }
+      }
+    }
+  }
+  .ofundnum{
+    position: absolute;
+    font-weight: normal;
+    bottom: 90px;
+    right: 2px;
+    animation: totop .4s;
+    -webkit-animation: totop .4s;
+    -moz-animation: totop .4s;
+    -o-animation: totop .4s;
+    -ms-animation: totop .4s;
+    color: @red-stepe9;
+  }
+}
+
+@keyframes totop {
+  0%{
+    transform: translate(0, 16px);
+    -webkit-transform: translate(0, 16px);
+    -moz-transform: translate(0, 16px);
+    -o-transform: translate(0, 16px);
+    -ms-transform: translate(0, 16px);
+  }
+  100%{
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+  }
+}

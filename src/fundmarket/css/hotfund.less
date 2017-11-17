@@ -1,0 +1,402 @@
+@import "../../common/css/common.less";
+@import "import/pagecommon.less";
+@import "import/menu.less";
+@import "import/market-header.less";
+@import "../../common/tpls/css/footer_v1.less";
+
+.banner {
+  width: 100%;
+  height: 360px;
+  background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-banner.jpg') center 0 no-repeat;
+  min-width: 1180px;
+  margin-bottom: 10px;
+}
+
+.catelist {
+  width: 1180px;
+  margin: 0 auto 40px auto;
+  .c-title {
+    font-size: 30px;
+    color: @blue-step45;
+    text-align: center;
+    line-height: 92px;
+  }
+  .c-list {
+    text-align: center;
+    ul {
+      display: inline-block;
+      width: 1200px;
+      margin-left: -10px;
+      li {
+        float: left;
+        margin: 0 10px;
+        .title {
+          width: 220px;
+          height: 71px;
+        }
+        .content {
+          width: 220px;
+          height: 168px;
+          padding-top: 19px;
+          background-color: @white;
+          box-shadow: 0 5px 10px -2px rgba(0, 0, 0, .2);
+          *border: 1px solid @gray-stepd;
+          .name {
+            font-size: 18px;
+            margin-bottom: 4px;
+            height: 27px;
+            padding: 0 10px;
+            overflow: hidden;
+            color: @gray-step6;
+            display: block;
+            &:hover {
+              color: @red-stepcf;
+            }
+          }
+          .percent {
+            color: @red-stepff;
+            font-size: 20px;
+            font-weight: bold;
+            span {
+              font-size: 30px;
+            }
+          }
+          .unit {
+            font-size: 14px;
+            color: @gray-stepa;
+            margin-bottom: 13px;
+          }
+          .button {
+            width: 140px;
+            height: 54px;
+            display: inline-block;
+            background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-listbutton.png') 0 0 no-repeat;
+            transition: all .3s;
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -ms-transition: all .3s;
+            a {
+              width: 120px;
+              height: 34px;
+              display: inline-block;
+              margin-top: 2px;
+            }
+            &:hover{
+              transform: translate(0, -5px);
+              -webkit-transform: translate(0, -5px);
+              -moz-transform: translate(0, -5px);
+              -ms-transform: translate(0, -5px);
+            }
+          }
+        }
+        &.gpx {
+          .title {
+            background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-listtop1.jpg') 0 0 no-repeat;
+          }
+        }
+        &.hhx {
+          .title {
+            background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-listtop2.jpg') 0 0 no-repeat;
+          }
+        }
+        &.zqx {
+          .title {
+            background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-listtop3.jpg') 0 0 no-repeat;
+          }
+        }
+        &.qdii {
+          .title {
+            background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-listtop4.jpg') 0 0 no-repeat;
+          }
+        }
+        &.hbx {
+          .title {
+            background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-listtop5.jpg') 0 0 no-repeat;
+          }
+        }
+      }
+    }
+  }
+}
+
+.flist {
+  overflow: hidden;
+  width: 1140px;
+  padding: 0 20px;
+  margin: 0 auto 40px auto;
+  .f-left {
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+  }
+  .f-right {
+    float: left;
+    width: 920px;
+    ul {
+      li {
+        position: relative;
+        &.w65 {
+          width: 65px;
+        }
+        &.w135 {
+          width: 135px;
+        }
+        &.w49 {
+          width: 49px;
+        }
+        &.w46 {
+          width: 46px;
+        }
+        &.w73 {
+          width: 73px;
+        }
+        &.w60 {
+          width: 57px;
+          padding-right: 3px;
+        }
+        &.w57 {
+          width: 54px;
+          padding-right: 3px;
+        }
+        &.w84 {
+          width: 81px;
+          padding-right: 3px;
+        }
+        &.w58 {
+          width: 58px;
+        }
+        &.w79 {
+          width: 76px;
+          padding-right: 3px;
+        }
+        &.w100 {
+          width: 100px;
+        }
+        &.w30 {
+          width: 30px;
+        }
+        &.mr10 {
+          margin-right: 10px;
+        }
+        &.mr15 {
+          margin-right: 20px;
+        }
+        &.mr20 {
+          margin-right: 20px;
+        }
+        &.mr30 {
+          margin-right: 30px;
+        }
+        &.ml10 {
+          margin-left: 10px;
+        }
+        &.ml20 {
+          margin-left: 20px;
+        }
+        &.tal {
+          text-align: left;
+        }
+        &.tar {
+          text-align: right;
+        }
+        &.sort {
+          padding-right: 11px;
+          cursor: pointer;
+          text-align: right;
+          .ardown {
+            background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-arrowdown.png) 0 0 no-repeat;
+            width: 7px;
+            height: 5px;
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 13px;
+          }
+          .arup {
+            background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-arrowup.png) 0 0 no-repeat;
+            width: 7px;
+            height: 5px;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 13px;
+          }
+        }
+        &.s-down {
+          color: @red-stepcf;
+          .ardown {
+            background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-arrowdownon.png) 0 0 no-repeat;
+          }
+        }
+        &.s-up {
+          color: @red-stepcf;
+          .arup {
+            background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-arrowupon.png) 0 0 no-repeat;
+          }
+        }
+      }
+    }
+    .sortList {
+      overflow: hidden;
+      background-color: @gray-stepf6;
+      height: 40px;
+      display: block;
+      li {
+        float: left;
+        line-height: 40px;
+        font-size: 14px;
+        color: @gray-step6;
+        text-align: center;
+
+      }
+    }
+    .fund {
+      ul {
+        border-bottom: 1px solid @gray-stepd;
+        overflow: hidden;
+        li {
+          float: left;
+          height: 70px;
+          line-height: 70px;
+          &.tar {
+            text-align: right;
+          }
+          &.rank {
+            text-align: center;
+            &.first {
+              width: 65px;
+              height: 70px;
+              background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-top1.png') center center no-repeat;
+            }
+            &.second {
+              width: 65px;
+              height: 70px;
+              background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-top2.png') center center no-repeat;
+            }
+            &.third {
+              width: 65px;
+              height: 70px;
+              background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-top3.png') center center no-repeat;
+            }
+          }
+          &.star {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            margin-top: 25px;
+            background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-star.png') center center no-repeat;
+            cursor: pointer;
+            &.staron {
+              background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-staron.png') center center no-repeat;
+            }
+          }
+          .type, .name {
+            color: @gray-step3;
+            height: 24px;
+            overflow: hidden;
+            line-height: 24px;
+            margin-top: 11px;
+          }
+          .name {
+            a {
+              color: @blue-step44;
+            }
+          }
+          .code, .risk {
+            color: @gray-stepa;
+            line-height: 24px;
+          }
+          &.button {
+            a {
+              width: 38px;
+              height: 20px;
+              text-align: center;
+              line-height: 20px;
+              border: 1px solid @red-stepcf;
+              font-size: 12px;
+              float: left;
+              display: block;
+              border-radius: 4px;
+              margin: 24px 5px 0 5px;
+              &.buy {
+                background-color: @red-stepcf;
+                color: @white;
+                &:hover {
+                  background-color: @red-stepd9;
+                  border: 1px solid @red-stepd9
+                }
+              }
+              &.dt {
+                background-color: @white;
+                color: @red-stepcf;
+                &:hover {
+                  background-color: @red-stepfc;
+                }
+              }
+            }
+          }
+          &.bold {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  &.fmonth {
+    .f-left {
+      height: 750px;
+      background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-dialog1.jpg') 0 0 no-repeat;
+    }
+  }
+  &.fgpx {
+    .f-left {
+      height: 395px;
+      background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-dialog2.jpg') 0 0 no-repeat;
+    }
+  }
+  &.fhhx {
+    .f-left {
+      height: 395px;
+      background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-dialog3.jpg') 0 0 no-repeat;
+    }
+  }
+  &.fzqx {
+    .f-left {
+      height: 395px;
+      background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-dialog4.jpg') 0 0 no-repeat;
+    }
+  }
+  &.fqdii {
+    .f-left {
+      height: 395px;
+      background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-dialog5.jpg') 0 0 no-repeat;
+    }
+  }
+  &.fhbx {
+    margin-bottom: 0;
+    .f-left {
+      height: 395px;
+      background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/hot-dialog6.jpg') 0 0 no-repeat;
+    }
+  }
+}
+
+.risktip {
+  width: 1140px;
+  padding: 25px 0;
+  margin: 0 auto;
+  p {
+    color: @gray-stepa;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.footer-box {
+  width: 100%;
+  background-color: @gray-stepf2;
+  .con {
+    width: 1180px;
+    margin: 0 auto;
+  }
+}

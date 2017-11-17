@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基金定投</title>
+    <link rel="stylesheet" href="fundplan.css">
+</head>
+<body>
+@@include('templates/market-header.html', {
+"navon0": "","navon1": "","navon2": "","navon3": "","navon4": "on","navon5": ""
+})
+<div class="banner"></div>
+<div class="plantitle">精选定投计划
+    <div class="p-right">
+        <p class="explain">收益率说明 <i></i></p>
+        <p class="date">数据更新至：2017-07-25</p>
+    </div>
+</div>
+<div class="planlist" id="planList">
+    <div class="p-box">
+        <ul>
+            <li class="type1">
+                <p class="pic"></p>
+                <div class="info">
+                    <p class="line">每月发薪日自动存入<span class="f-pink">200元</span></p>
+                    <p class="line">年底至少有钱雇个女朋友回家</p>
+                    <a href="###" target="_blank" class="percent f-pink"><span>4.6712</span>%</a>
+                    <p class="unit">7日年化</p>
+                    <p class="button">
+                        <a href="###" target="_blank"></a>
+                    </p>
+                </div>
+            </li>
+            <li class="type2">
+                <p class="pic"></p>
+                <div class="info">
+                    <p class="line">每月存入<span class="f-pink">600元</span></p>
+                    <p class="line">1年给她存下一枚鸽子蛋</p>
+                    <a href="###" target="_blank" class="percent f-pink"><span>79.12</span>%</a>
+                    <p class="unit">近1年涨幅</p>
+                    <p class="button">
+                        <a href="###" target="_blank"></a>
+                    </p>
+                </div>
+            </li>
+            <li class="type3">
+                <p class="pic"></p>
+                <div class="info">
+                    <p class="line">每周定投<span class="f-pink">300元</span></p>
+                    <p class="line">每年拥有一段说走就走的旅行</p>
+                    <a href="###" target="_blank" class="percent f-pink"><span>24.12</span>%</a>
+                    <p class="unit">近1年涨幅</p>
+                    <p class="button">
+                        <a href="###" target="_blank"></a>
+                    </p>
+                </div>
+            </li>
+            <li class="type4">
+                <p class="pic"></p>
+                <div class="info">
+                    <p class="line">每月定投<span class="f-pink">2000元</span></p>
+                    <p class="line">三年拥有一辆与你相伴的爱车</p>
+                    <a href="###" target="_blank" class="percent f-pink"><span>54.12</span>%</a>
+                    <p class="unit">近1年涨幅</p>
+                    <p class="button">
+                        <a href="###" target="_blank"></a>
+                    </p>
+                </div>
+            </li>
+            <li class="type5">
+                <p class="pic"></p>
+                <div class="info">
+                    <p class="line">每周定投<span class="f-pink">2000元</span></p>
+                    <p class="line">退休享清福 不用儿女操心</p>
+                    <a href="###" target="_blank" class="percent f-pink"><span>14.62</span>%</a>
+                    <p class="unit">近1年涨幅</p>
+                    <p class="button">
+                        <a href="###" target="_blank"></a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="p-left" id="pLeft"></div>
+    <div class="p-right" id="pRight"></div>
+</div>
+<div class="planbull">定投牛基 <i class="p-leftline"></i><i class="p-rightline"></i></div>
+<div class="flist fzsx" id="zsxList" data-key="zsx">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w125 mr10 tal">基金名称/代码</li>
+            <!--<li class="w65 tal">基金类型</li>-->
+            <li class="w61 mr20 sort">定投1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w61 mr20 sort">定投2年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w125 ml20 tal">标的指数</li>
+            <li class="w110 tal">历史最低</li>
+            <li class="w110 tal">历史最高</li>
+            <li class="w110 tal">当前点位</li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+            <ul>
+                <li class="w125 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w125 ml20 tal">沪深300指数</li>
+                <li class="w110 tal">800.2121</li>
+                <li class="w110 tal">5423.2123</li>
+                <li class="w110 tal f-link">5423.2123</li>
+
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="w125 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w125 ml20 tal">沪深300指数</li>
+                <li class="w110 tal">800.2121</li>
+                <li class="w110 tal">5423.2123</li>
+                <li class="w110 tal f-link">5423.2123</li>
+
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="w125 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w125 ml20 tal">沪深300指数</li>
+                <li class="w110 tal">800.2121</li>
+                <li class="w110 tal">5423.2123</li>
+                <li class="w110 tal f-link">5423.2123</li>
+
+                <li class="w30 ml10 star" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="w125 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w125 ml20 tal">沪深300指数沪深300指数沪深300指数</li>
+                <li class="w110 tal">800.2121</li>
+                <li class="w110 tal">5423.2123</li>
+                <li class="w110 tal f-link">5423.2123</li>
+
+                <li class="w30 ml10 star" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="w125 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w69 mr20 tar f-up">0.41%</li>
+                <li class="w125 ml20 tal">沪深300指数</li>
+                <li class="w110 tal">800.2121</li>
+                <li class="w110 tal">5423.2123211212</li>
+                <li class="w110 tal f-link">5423.2123</li>
+
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="flist fgpx" id="gpxList" data-key="gpx">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w162 mr10 tal">基金名称/代码</li>
+            <li class="w125 tal">基金类型</li>
+            <li class="w63 mr50 sort">定投1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投2年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投3年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投5年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+            <ul>
+                <li class="w162 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w125 tal"><p class="type">股票型</p>
+                    <p class="risk">中高风险</p></li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="flist fhhx" id="hhxList" data-key="hhx">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w162 mr10 tal">基金名称/代码</li>
+            <li class="w125 tal">基金类型</li>
+            <li class="w63 mr50 sort">定投1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投2年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投3年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投5年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+            <ul>
+                <li class="w162 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w125 tal"><p class="type">股票型</p>
+                    <p class="risk">中高风险</p></li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="w162 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w125 tal"><p class="type">股票型</p>
+                    <p class="risk">中高风险</p></li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="w162 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w125 tal"><p class="type">股票型</p>
+                    <p class="risk">中高风险</p></li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="w162 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w125 tal"><p class="type">股票型</p>
+                    <p class="risk">中高风险</p></li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="w162 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w125 tal"><p class="type">股票型</p>
+                    <p class="risk">中高风险</p></li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="flist fzqx" id="zqxList" data-key="zqx">
+    <p class="f-left"></p>
+    <div class="f-right">
+        <ul class="sortList">
+            <li class="w162 mr10 tal">基金名称/代码</li>
+            <li class="w125 tal">基金类型</li>
+            <li class="w63 mr50 sort">定投1年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投2年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投3年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w63 mr50 sort">定投5年 <i class="ardown"></i><i class="arup"></i></li>
+            <li class="w100">操作</li>
+        </ul>
+        <div class="fund">
+            <ul>
+                <li class="w162 mr10 tal"><p class="name"><a href="/000697" target="_blank">汇添富移动互联股票</a></p>
+                    <p class="code">000697</p></li>
+                <li class="w125 tal"><p class="type">股票型</p>
+                    <p class="risk">中高风险</p></li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w71 tar mr50 f-up">0.41%</li>
+                <li class="w30 ml10 star staron" data-code=""></li>
+                <li class="w61 button">
+                    <a href="###" target="_blank" class="dt">定投</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="planbull planten">10元轻定投 <i class="p-leftline"></i><i class="p-rightline"></i></div>
+<div class="datalist">
+    <ul class="ttlist" id="sortList">
+        <li class="width192">基金名称/代码</li>
+        <li class="width92">基金类型</li>
+        <li class="width92">单位净值</li>
+        <li class="width58 sort" data-key="week">近1周 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="month">近1月 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort s-down" data-key="tmonth">近3月 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="hyear">近6月 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="year">近1年 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="tyear">成立来 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width58 sort" data-key="tyear">费率 <i class="ardown"></i><i class="arup"></i></li>
+        <li class="width100">操作</li>
+    </ul>
+    <div class="data" id="resultList">
+        <ul>
+            <li class="width192 lh24"><a href="//fund.10jqka.com.cn/470028" data-code="470028" target="_blank"
+                                         class="name" title="汇添富社会责任混合">汇添富社会责任混合</a>
+                <p class="code">470028</p></li>
+            <li class="width92 lh24"><p class="type">混合型</p>
+                <p class="risk">中高风险</p></li>
+            <li class="width92 lh24"><p class="num">2.1020</p>
+                <p class="date">2017-11-01</p></li>
+            <li class="width58 "><p class="up">5.95%</p></li>
+            <li class="width58 bold"><p class="up">25.57%</p></li>
+            <li class="width58 "><p class="up">38.29%</p></li>
+            <li class="width58 "><p class="up">20.46%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="star on" data-code="470028"></li>
+            <li class="width73"><p class="button"><a class="dt" target="_blank" href="###" data-code="">10元定投</a></p>
+            </li>
+        </ul>
+        <ul>
+            <li class="width192 lh24"><a href="//fund.10jqka.com.cn/470028" data-code="470028" target="_blank"
+                                         class="name" title="汇添富社会责任混合">汇添富社会责任混合</a>
+                <p class="code">470028</p></li>
+            <li class="width92 lh24"><p class="type">混合型</p>
+                <p class="risk">中高风险</p></li>
+            <li class="width92 lh24"><p class="num">2.1020</p>
+                <p class="date">2017-11-01</p></li>
+            <li class="width58 "><p class="up">5.95%</p></li>
+            <li class="width58 bold"><p class="up">25.57%</p></li>
+            <li class="width58 "><p class="up">38.29%</p></li>
+            <li class="width58 "><p class="up">20.46%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="star on" data-code="470028"></li>
+            <li class="width73"><p class="button"><a class="dt" target="_blank" href="###" data-code="">10元定投</a></p>
+            </li>
+        </ul>
+        <ul>
+            <li class="width192 lh24"><a href="//fund.10jqka.com.cn/470028" data-code="470028" target="_blank"
+                                         class="name" title="汇添富社会责任混合">汇添富社会责任混合</a>
+                <p class="code">470028</p></li>
+            <li class="width92 lh24"><p class="type">混合型</p>
+                <p class="risk">中高风险</p></li>
+            <li class="width92 lh24"><p class="num">2.1020</p>
+                <p class="date">2017-11-01</p></li>
+            <li class="width58 "><p class="up">5.95%</p></li>
+            <li class="width58 bold"><p class="up">25.57%</p></li>
+            <li class="width58 "><p class="up">38.29%</p></li>
+            <li class="width58 "><p class="up">20.46%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="width58 "><p class="up">75.02%</p></li>
+            <li class="star on" data-code="470028"></li>
+            <li class="width73"><p class="button"><a class="dt" target="_blank" href="###" data-code="">10元定投</a></p>
+            </li>
+        </ul>
+    </div>
+    <div class="pageturn" id="pageturn"></div>
+</div>
+<div class="news">
+    <p class="n-title">相关阅读</p>
+    <ul class="n-list">
+        <li>
+            1、<a href="###" target="_blank" class="f-link">什么是基金定投及其优点？</a>
+        </li>
+        <li>
+            2、<a href="###" target="_blank" class="f-link">如何选择定投基金的种类？</a>
+        </li>
+        <li>
+            3、<a href="###" target="_blank" class="f-link">胆大心细：从定投小白到投资高手</a>
+        </li>
+        <li>
+            4、<a href="###" target="_blank" class="f-link">从基金定投里面 发现赚钱的小秘密</a>
+        </li>
+        <li>
+            5、<a href="###" target="_blank" class="f-link">定投基金被套 该怎么办？</a>
+        </li>
+    </ul>
+</div>
+<div class="risktip">
+    <p>风险提示：投资有风险。基金的过往业绩并不预示其未来表现。基金管理人管理的其他基金的业绩并不构成基金业绩表现的保证。</p>
+    <p>相关数据仅供参考，不构成投资建议。投资人请详阅基金合同和基金招募说明书，并自行承担投资风险。</p>
+</div>
+@@include('templates/menu.html')
+<div class="footer-box">
+    <div class="con">
+        @@include('../common/tpls/footer.html')
+    </div>
+</div>
+<script type="text/javascript"
+        src="//s.thsi.cn/cb?js/;jquery-1.8.3.min.js;jquery.cookie.min.js;ta.min.js;sso.min.js;thsLogin.min.js;ijijin/fundClientPC/js/;mustache.min.js"></script>
+<script type="text/javascript" src="//s.thsi.cn/cb?/js/ifund/home/3.0/require.js" data-main="fundplan.js"></script>
+</body>
+</html>

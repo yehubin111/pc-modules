@@ -1,0 +1,137 @@
+.usecalculator {
+  width: 400px;
+  height: 543px;
+  background-color: @white;
+  position: fixed;
+  top: 50%;
+  margin-top: -271px;
+  left: 50%;
+  margin-left: -200px;
+  z-index: 1000;
+  .u-title {
+    height: 30px;
+    background-color: @red-stepe9;
+    display: block;
+    position: relative;
+    .name {
+      background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/calculatortitle.png) 8px 7px no-repeat;
+      color: @white;
+      float: left;
+      line-height: 30px;
+      padding-left: 33px;
+    }
+    .close {
+      width: 30px;
+      height: 30px;
+      display: block;
+      float: right;
+      margin-right: 12px;
+      cursor: pointer;
+      background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/calculator-close.png) center center no-repeat;
+    }
+  }
+  .u-fundinfo {
+    .fundinput {
+      padding-left: 20px;
+      margin-top: 20px;
+      position: relative;
+      .title {
+        float: left;
+        line-height: 30px;
+        color: @gray-step6;
+        margin-right: 10px;
+      }
+      input {
+        float: left;
+        width: 216px;
+        height: 28px;
+        border: 1px solid @gray-stepd;
+        padding: 0 6px;
+        color: @gray-step3;
+        margin-right: 10px;
+      }
+      .unit {
+        float: left;
+        line-height: 30px;
+        color: @gray-step6;
+      }
+      .fund {
+        float: left;
+        line-height: 30px;
+        color: @gray-step6;
+        span {
+          color: @blue-step44;
+        }
+      }
+      .seachResult {
+        position: absolute;
+        left: 86px;
+        top: 29px;
+        *top: 49px;
+        width: 228px;
+        background-color: @white;
+        border: 1px solid @gray-stepd;
+        z-index: 9;
+        .s-info {
+          padding: 0 10px;
+          line-height: 24px;
+          font-size: 12px;
+          cursor: pointer;
+          &.on{
+            background-color: @yellow-stepff;
+          }
+        }
+      }
+    }
+    .tip {
+      padding-left: 20px;
+      line-height: 53px;
+      color: @gray-stepa;
+    }
+  }
+  .u-result {
+    .line {
+      text-align: center;
+      border-top: 1px solid @gray-stepd;
+      padding: 17px 0 5px 0;
+      *padding-left: 30px;
+      *text-align: left;
+      *overflow: hidden;
+      .sy {
+        display: inline-block;
+        *width: 172px;
+        *float: left;
+        p {
+          width: 132px;
+          padding-left: 40px;
+          text-align: left;
+        }
+        .key {
+          color: @gray-step6;
+        }
+        .value {
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .u-expoint {
+    padding-left: 40px;
+    background: url(//i.thsi.cn/images/ifund/home/ynew/ndiscount/expoint.png) 20px center no-repeat;
+    color: @gray-stepa;
+    line-height: 52px;
+  }
+}
+.shadow {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: @black;
+  z-index: 999;
+  opacity: .5;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+}

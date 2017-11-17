@@ -1,0 +1,1374 @@
+@import "../../common/css/common.less";
+@import "import/pagecommon.less";
+@import "import/menu.less";
+@import "import/market-header.less";
+@import "../../common/tpls/css/footer_v1.less";
+
+.footer-box {
+  width: 100%;
+  background-color: @gray-stepf2;
+  border-top: 1px solid @gray-stepd;
+  .con {
+    width: 1180px;
+    margin: 0 auto;
+  }
+}
+
+body {
+  background-color: @blue-stepeb;
+}
+
+@keyframes l-rotate {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+}
+
+.content {
+  width: 100%;
+  background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-bg.jpg) center 0 no-repeat;
+  .famous {
+    height: 360px;
+    width: 1180px;
+    margin: 0 auto 30px auto;
+    .left {
+      float: left;
+      margin-right: 18px;
+      box-shadow: 0 5px 10px -2px rgba(0, 0, 0, .2);
+      .f-nav {
+        float: left;
+        width: 160px;
+        li {
+          width: 80px;
+          float: left;
+          a {
+            background-color: @gray-step49;
+            display: block;
+            height: 90px;
+            overflow: hidden;
+            .icon {
+              height: 30px;
+              margin-top: 18px;
+            }
+            .name {
+              text-align: center;
+              color: @gray-stepb3;
+              font-size: 12px;
+              line-height: 28px;
+            }
+            &.syb {
+              .icon {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-navicon1.png) center 0 no-repeat;
+              }
+            }
+            &.jjph {
+              .icon {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-navicon2.png) center 0 no-repeat;
+              }
+            }
+            &.lcb {
+              .icon {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-navicon3.png) center 0 no-repeat;
+              }
+            }
+            &.jjkh {
+              .icon {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-navicon4.png) center 0 no-repeat;
+              }
+            }
+            &.qslc {
+              .icon {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-navicon5.png) center 0 no-repeat;
+              }
+            }
+            &.jjjy {
+              .icon {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-navicon6.png) center 0 no-repeat;
+              }
+            }
+            &.yzyh {
+              .icon {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-navicon7.png) center 0 no-repeat;
+              }
+            }
+            &.jjkt {
+              .icon {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-navicon8.png) center 0 no-repeat;
+              }
+            }
+            &:hover {
+              background-color: @gray-step3a;
+            }
+          }
+        }
+      }
+      .focus {
+        width: 720px;
+        height: 360px;
+        overflow: hidden;
+        float: left;
+        position: relative;
+        ul {
+          overflow: hidden;
+          width: 720px;
+          height: 360px;
+          li {
+            width: 720px;
+            height: 360px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            filter: alpha(opacity=100);
+            transition: all .3s;
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            -ms-transition: all .3s;
+            display: none;
+            a {
+              display: block;
+              img {
+                width: 720px;
+                height: 360px;
+                display: block;
+              }
+            }
+            &.on {
+              z-index: 10;
+              display: block;
+            }
+            &.active {
+              z-index: 9;
+            }
+            &.next {
+              display: block;
+              z-index: 8;
+            }
+          }
+        }
+        .turn {
+          width: 100%;
+          height: 30px;
+          text-align: center;
+          position: absolute;
+          z-index: 10;
+          bottom: 0;
+          left: 0;
+          .t-box {
+            display: inline-block;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, .5);
+            padding: 3px 3px;
+            border-radius: 8px;
+            margin-top: 5px;
+            span {
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              background-color: @white;
+              float: left;
+              margin: 0 3px;
+              cursor: pointer;
+              &.on {
+                background-color: @red-stepcf;
+              }
+            }
+          }
+        }
+      }
+    }
+    .right {
+      float: left;
+      width: 282px;
+      height: 360px;
+      background: @white;
+      background: -webkit-linear-gradient(@blue-stepeb, @white);
+      background: -o-linear-gradient(@blue-stepeb, @white);
+      background: -moz-linear-gradient(@blue-stepeb, @white);
+      background: linear-gradient(@blue-stepeb, @white);
+      box-shadow: 0 5px 10px -2px rgba(0, 0, 0, .2);
+      overflow: hidden;
+      .r-title {
+        margin-top: 11px;
+        padding-left: 20px;
+        overflow: hidden;
+        padding-bottom: 2px;
+        position: relative;
+        margin-bottom: 3px;
+        b {
+          float: left;
+          font-size: 18px;
+          color: @gray-step3;
+          line-height: 38px;
+          margin-right: 8px;
+        }
+        .tip {
+          float: left;
+          width: 60px;
+          height: 16px;
+          margin-top: 11px;
+          background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-toptip.png) 0 0 no-repeat;
+          display: block;
+        }
+        .line {
+          width: 18px;
+          height: 2px;
+          display: block;
+          background-color: @red-stepcf;
+          position: absolute;
+          bottom: 0px;
+        }
+      }
+      .r-info {
+        overflow: hidden;
+        padding-left: 20px;
+        padding-right: 20px;
+        .lf {
+          float: left;
+          .percent {
+            line-height: 54px;
+            color: @red-stepff;
+            font-size: 24px;
+            margin-right: 5px;
+            span {
+              font-size: 36px;
+            }
+          }
+          .unit {
+            font-size: 14px;
+            color: @gray-step6;
+          }
+        }
+        a {
+          width: 42px;
+          height: 20px;
+          float: right;
+          display: inline-block;
+          background-color: @red-stepff;
+          color: @white;
+          text-align: center;
+          line-height: 20px;
+          border-radius: 2px;
+          font-size: 12px;
+          margin-top: 20px;
+        }
+      }
+      .r-box {
+        margin: 0 20px 10px 20px;
+        height: 110px;
+        border-radius: 4px;
+        overflow: hidden;
+        .title {
+          font-size: 16px;
+          color: @white;
+          margin-left: 13px;
+          margin-top: 12px;
+          padding-bottom: 1px;
+        }
+        .info {
+          font-size: 14px;
+          margin-left: 13px;
+          line-height: 34px;
+          padding-bottom: 2px;
+          height: 41px;
+          overflow: hidden;
+          .percent {
+            font-size: 24px;
+            span {
+              font-size: 36px;
+            }
+          }
+        }
+        .tip {
+          border-bottom-left-radius: 4px;
+          border-bottom-right-radius: 4px;
+          text-align: center;
+          line-height: 30px;
+        }
+        &.r-syb {
+          background-color: @red-stepe9;
+          .info {
+            color: @pink-stepff;
+            .percent {
+              color: @yellow-stepfe;
+            }
+          }
+          .tip {
+            color: @pink-stepff;
+            background-color: @red-stepc6;
+          }
+        }
+        &.r-lcb {
+          background-color: @blue-step50;
+          .info {
+            color: @blue-stepbc;
+            .percent {
+              color: @yellow-stepfe;
+            }
+          }
+          .tip {
+            color: @blue-stepbc;
+            background-color: @blue-step3a;
+          }
+        }
+      }
+    }
+  }
+  .four {
+    width: 1180px;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+    height: 300px;
+    .f-box {
+      width: 280px;
+      height: 296px;
+      border-top: 4px solid @red-stepff;
+      background-color: @white;
+      float: left;
+      overflow: hidden;
+      text-align: center;
+      margin-right: 20px;
+      transition: all .3s;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      -ms-transition: all .3s;
+      .title {
+        line-height: 58px;
+        margin-top: 8px;
+        font-size: 26px;
+        color: @gray-step3;
+        text-align: center;
+        display: block;
+      }
+      .font {
+        font-size: 14px;
+        color: @gray-step68;
+        padding: 0 20px;
+        line-height: 22px;
+        text-align: left;
+      }
+      .unit {
+        padding-top: 13px;
+        border-top: 1px solid @gray-stepd;
+        font-size: 14px;
+        color: @gray-step68;
+        margin: 12px 20px 0 20px;
+        text-align: center;
+      }
+      .percent {
+        font-size: 24px;
+        font-weight: bold;
+        color: @red-stepff;
+        text-align: center;
+        display: block;
+        line-height: 48px;
+        span {
+          font-size: 36px;
+        }
+      }
+      .name {
+        text-align: center;
+        display: block;
+        margin-bottom: 7px;
+        //&:hover {
+        //  color: @red-stepcf;
+        //}
+      }
+      .button {
+        width: 140px;
+        height: 54px;
+        background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-button.png') 0 0 no-repeat;
+        display: inline-block;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -ms-transition: all .3s;
+        a {
+          width: 120px;
+          height: 34px;
+          display: inline-block;
+          margin-top: 2px;
+        }
+      }
+      &.mr0 {
+        margin-right: 0;
+      }
+      &:hover {
+        transform: translate(0, -5px);
+        -webkit-transform: translate(0, -5px);
+        -moz-transform: translate(0, -5px);
+        -ms-transform: translate(0, -5px);
+      }
+    }
+  }
+  .hotfund {
+    width: 1180px;
+    margin: 0 auto 20px auto;
+    padding-top: 6px;
+    background-color: @white;
+    overflow: hidden;
+    .h-title {
+      line-height: 34px;
+      padding: 0 20px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      span {
+        font-size: 18px;
+        color: @gray-step3;
+        float: left;
+        border-bottom: 2px solid @red-stepcf;
+      }
+      .more {
+        float: right;
+        line-height: 34px;
+        font-size: 12px;
+      }
+    }
+    .h-fund {
+      overflow: hidden;
+      padding: 0 0 0 20px;
+      width: 1220px;
+      .list {
+        width: 340px;
+        float: left;
+        margin-right: 60px;
+        .l-title {
+          height: 30px;
+          line-height: 30px;
+          outline: 10px;
+          color: @gray-step3;
+          font-size: 16px;
+          padding-left: 10px;
+          background-color: @gray-stepf6;
+          font-weight: bold;
+        }
+        .l-key {
+          overflow: hidden;
+          li {
+            line-height: 38px;
+            color: @gray-stepa;
+            font-size: 14px;
+            float: left;
+            &.w154 {
+              width: 154px;
+              margin-right: 10px;
+            }
+          }
+        }
+        .l-fund {
+          overflow: hidden;
+          ul {
+            overflow: hidden;
+            li {
+              float: left;
+              line-height: 36px;
+              margin-bottom: 20px;
+              &.w154 {
+                width: 154px;
+                margin-right: 10px;
+              }
+              &.w86 {
+                width: 86px;
+              }
+              .name {
+                line-height: 18px;
+                a {
+                  //color: @gray-step3;
+                  //&:hover {
+                  //  color: @red-stepcf;
+                  //}
+                }
+              }
+              .code {
+                line-height: 18px;
+                color: @gray-stepa;
+              }
+              .percent {
+                color: @red-stepcf;
+                font-weight: bold;
+              }
+              &.star {
+                height: 36px;
+                width: 26px;
+                margin: 0 12px;
+                background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-star.png') center center no-repeat;
+                cursor: pointer;
+                &.on {
+                  background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-staron.png') center center no-repeat;
+                }
+              }
+              &.button {
+                a {
+                  width: 38px;
+                  height: 20px;
+                  text-align: center;
+                  line-height: 20px;
+                  border: 1px solid @red-stepcf;
+                  font-size: 12px;
+                  float: left;
+                  display: block;
+                  border-radius: 4px;
+                  margin: 7px 0 0 0;
+                  background-color: @white;
+                  color: @red-stepcf;
+                  &:hover {
+                    background-color: @red-stepcf;
+                    color: @white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+  .theme {
+    width: 1180px;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+    .t-box {
+      width: 280px;
+      float: left;
+      margin-right: 20px;
+      .pic {
+        width: 280px;
+        height: 148px;
+        position: relative;
+        .more {
+          width: 48px;
+          height: 22px;
+          display: block;
+          position: absolute;
+          top: 14px;
+          right: 16px;
+        }
+      }
+      .info {
+        background-color: @white;
+        width: 240px;
+        height: 172px;
+        padding: 0 20px;
+        .i-name {
+          margin: 13px 0 5px 0;
+          display: inline-block;
+          font-size: 18px;
+        }
+        .i-second {
+          color: @gray-step6;
+          margin-bottom: 12px;
+          .percent {
+            margin-right: 8px;
+            color: @red-stepcf;
+            font-weight: bold;
+            font-size: 20px;
+            b {
+              font-size: 30px;
+            }
+          }
+        }
+        .i-button {
+          width: 238px;
+          height: 38px;
+          background-color: @white;
+          border: 1px solid @red-stepcf;
+          color: @red-stepcf;
+          text-align: center;
+          line-height: 38px;
+          display: block;
+          &:hover {
+            color: @white;
+            background-color: @red-stepcf;
+          }
+        }
+      }
+      &.t-teny {
+        .pic {
+          background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-classify1.jpg') 0 0 no-repeat;
+        }
+      }
+      &.t-plan {
+        .pic {
+          background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-classify2.jpg') 0 0 no-repeat;
+        }
+      }
+      &.t-high {
+        .pic {
+          background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-classify3.jpg') 0 0 no-repeat;
+        }
+      }
+    }
+    .t-ownfund {
+      width: 280px;
+      height: 320px;
+      overflow: hidden;
+      float: left;
+      background-color: @white;
+      .title {
+        margin-top: 8px;
+        line-height: 34px;
+        padding: 0 20px;
+        overflow: hidden;
+        ul {
+          float: left;
+          li {
+            float: left;
+            font-size: 18px;
+            color: @gray-step3;
+            line-height: 34px;
+            cursor: pointer;
+            margin-right: 18px;
+            &.on {
+              border-bottom: 2px solid @red-stepcf;
+            }
+          }
+        }
+        .update {
+          float: right;
+          width: 14px;
+          height: 14px;
+          cursor: pointer;
+          margin-top: 11px;
+          background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-update.png') 0 0 no-repeat;
+          &.on{
+            animation: l-rotate .3s;
+            -webkit-animation: l-rotate .3s;
+            -moz-animation: l-rotate .3s;
+            -ms-animation: l-rotate .3s;
+            -o-animation: l-rotate .3s;
+          }
+        }
+      }
+      .fundlist {
+        overflow: hidden;
+        width: 100%;
+        height: 276px;
+        .f-fund {
+          margin-top: 16px;
+          padding: 0 20px;
+          overflow: hidden;
+          line-height: 24px;
+          .left {
+            float: left;
+            width: 150px;
+            .name {
+              display: block;
+              height: 24px;
+              overflow: hidden;
+            }
+            .code {
+              color: @gray-stepa;
+            }
+          }
+          .right {
+            float: right;
+            .percent {
+              text-align: right;
+              display: block;
+            }
+            .unit {
+              color: @gray-stepa;
+            }
+          }
+        }
+      }
+      .ownfund {
+        .o-key {
+          color: @gray-step6;
+          padding: 0 20px;
+          overflow: hidden;
+          line-height: 36px;
+          .name {
+            float: left;
+            width: 170px;
+          }
+          .rise {
+            float: right;
+            width: 57px;
+            text-align: right;
+          }
+        }
+        .o-data {
+          height: 239px;
+          overflow: hidden;
+          ul {
+            overflow: hidden;
+            color: @gray-step3;
+            padding: 0 20px;
+            li {
+              line-height: 33px;
+              height: 33px;
+              overflow: hidden;
+              &.name {
+                float: left;
+                width: 170px;
+                a {
+                  //color: @gray-step3;
+                  //&:hover {
+                  //  color: @red-stepcf;
+                  //}
+                }
+              }
+              &.rise {
+                float: right;
+                width: 57px;
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+      .loginbox {
+        padding: 20px 20px 0 20px;
+        .l-button {
+          overflow: hidden;
+          .login {
+            width: 142px;
+            float: left;
+            height: 36px;
+            display: inline-block;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 36px;
+            font-size: 16px;
+            color: @white;
+            background-color: @red-stepe6;
+            &:hover {
+              background-color: @red-stepd9;
+            }
+          }
+          .open {
+            width: 86px;
+            height: 36px;
+            float: right;
+            display: inline-block;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 36px;
+            font-size: 16px;
+            color: @white;
+            background-color: @blue-step50;
+            &:hover {
+              background-color: @blue-step73;
+            }
+          }
+        }
+        .l-phone {
+          color: @gray-step6;
+          height: 60px;
+          line-height: 66px;
+          padding-left: 32px;
+          background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-loginphone.png') 4px 24px no-repeat;
+          i {
+            font-size: 18px;
+            color: @red-stepe4;
+            font-weight: bold;
+          }
+        }
+        .l-syb {
+          width: 240px;
+          height: 129px;
+          background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/index-loginsyb.jpg') 0 0 no-repeat;
+          overflow: hidden;
+          .percent {
+            font-size: 34px;
+            color: @yellow-stepfe;
+            margin: 31px 0 0 10px;
+            display: block;
+            span {
+              font-size: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .fundrank {
+    width: 1140px;
+    height: 500px;
+    background-color: @white;
+    margin: 0 auto 20px auto;
+    padding: 0 20px;
+    .f-title {
+      line-height: 48px;
+      color: @gray-step3;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .f-type {
+      overflow: hidden;
+      margin-bottom: 10px;
+      li {
+        float: left;
+        width: 65px;
+        height: 24px;
+        text-align: center;
+        line-height: 24px;
+        margin-right: 10px;
+        color: @blue-step50;
+        cursor: pointer;
+        background-color: @gray-stepf6;
+        &.all {
+          width: 48px;
+        }
+        &.on {
+          color: @white;
+          background-color: @blue-step50;
+        }
+      }
+    }
+    .f-datalist {
+      margin: 0 auto 34px auto;
+      //width: 1140px;
+      //padding: 0 20px;
+      .tip {
+        overflow: hidden;
+        p {
+          font-size: 12px;
+          color: #666;
+          line-height: 32px;
+          height: 32px;
+          &.d-total {
+            float: left;
+            span {
+              color: #cf0e0f;
+            }
+          }
+          &.d-date {
+            float: right;
+          }
+        }
+      }
+      .ttlist {
+        overflow: hidden;
+        background-color: #f6f4f7;
+        width: 1130px;
+        padding-left: 10px;
+        li {
+          float: left;
+          height: 40px;
+          line-height: 40px;
+          color: #666;
+          font-size: 14px;
+          //text-align: center;
+          margin-right: 10px;
+          &.width134 {
+            width: 134px;
+          }
+          &.width63 {
+            width: 63px;
+            padding-right: 22px;
+          }
+          &.width85 {
+            width: 85px;
+            margin-right: 0;
+          }
+          &.width58 {
+            width: 58px;
+            padding-right: 11px;
+            text-align: right;
+            margin-right: 13px;
+          }
+          &.width73 {
+            width: 73px;
+            padding-right: 11px;
+            text-align: right;
+            margin-right: 13px;
+          }
+          &.width106 {
+            width: 97px;
+            text-align: center;
+            margin-right: 0;
+            margin-left: 27px;
+          }
+          &.select {
+            position: relative;
+            cursor: pointer;
+            .selectdown {
+              background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-bigarrowdown.png) 0 0 no-repeat;
+              width: 9px;
+              height: 6px;
+              display: block;
+              position: absolute;
+              left: 63px;
+              bottom: 17px;
+            }
+            .selectup {
+              background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-bigarrowup.png) 0 0 no-repeat;
+              width: 9px;
+              height: 6px;
+              display: block;
+              position: absolute;
+              left: 63px;
+              bottom: 17px;
+            }
+          }
+          &.sort {
+            position: relative;
+            cursor: pointer;
+            .ardown {
+              background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-arrowdown.png) 0 0 no-repeat;
+              width: 7px;
+              height: 5px;
+              display: block;
+              position: absolute;
+              right: 0;
+              bottom: 13px;
+            }
+            .arup {
+              background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-arrowup.png) 0 0 no-repeat;
+              width: 7px;
+              height: 5px;
+              display: block;
+              position: absolute;
+              right: 0;
+              top: 13px;
+            }
+          }
+          &.zdsg {
+            .ardown {
+              right: -5px;
+            }
+            .arup {
+              right: -5px;
+            }
+          }
+          &.s-down {
+            color: #cf0e0f;
+            .ardown {
+              background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-arrowdownon.png) 0 0 no-repeat;
+            }
+          }
+          &.s-up {
+            color: #cf0e0f;
+            .arup {
+              background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-arrowupon.png) 0 0 no-repeat;
+            }
+          }
+        }
+      }
+      .data {
+        margin-bottom: 20px;
+        .d-default {
+          text-align: center;
+          line-height: 100px;
+          color: #666;
+        }
+        ul {
+          overflow: hidden;
+          border-bottom: 1px solid #ddd;
+          padding-left: 11px;
+          &.bbnone {
+            border-bottom: none;
+            *border-bottom: 0;
+          }
+          li {
+            line-height: 70px;
+            font-size: 14px;
+            float: left;
+            margin-right: 10px;
+            &.star {
+              cursor: pointer;
+              width: 28px;
+              height: 70px;
+              background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-star.png) 4px center no-repeat;
+              margin-right: 0;
+              &.on {
+                background: url(//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-staron.png) 4px center no-repeat;
+              }
+            }
+            &.lh24 {
+              line-height: 24px;
+              padding: 11px 0;
+            }
+            &.width134 {
+              width: 134px;
+            }
+            &.width92 {
+              width: 92px;
+              margin-right: 0;
+            }
+            &.width85 {
+              width: 85px;
+              margin-right: 0;
+            }
+            &.mr10 {
+              margin-right: 10px;
+            }
+            &.width66 {
+              width: 66px;
+              padding-right: 3px;
+              text-align: right;
+              margin-right: 13px;
+            }
+            &.width81 {
+              width: 81px;
+              padding-right: 3px;
+              text-align: right;
+              margin-right: 13px;
+            }
+            &.width97 {
+              width: 87px;
+              text-align: center;
+              margin-right: 0;
+            }
+            &.width106 {
+              width: 97px;
+              text-align: center;
+              margin-right: 0;
+            }
+            &.bold {
+              font-weight: bold;
+            }
+            .name {
+              color: #4489ca;
+              height: 24px;
+              line-height: 24px;
+              display: block;
+              overflow: hidden;
+            }
+            .code, .risk, .date, .money {
+              color: #aaa;
+            }
+            .type, .num {
+              color: #333;
+            }
+            .up {
+              color: #cf0e0f;
+            }
+            .down {
+              color: #57ab76;
+            }
+            .discount {
+              .old {
+                color: #666;
+                text-decoration: line-through;
+              }
+            }
+            .button {
+              *padding-top: 24px;
+              a {
+                cursor: pointer;
+                width: 38px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                display: inline-block;
+                border: 1px solid #cf0e0f;
+                border-radius: 3px;
+                font-size: 12px;
+                &.buy {
+                  background-color: #cf0e0f;
+                  color: #fff;
+                  margin-right: 10px;
+                  &:hover {
+                    border: 1px solid #d93e3f;
+                    background-color: #d93e3f;
+                  }
+                }
+                &.dt {
+                  background-color: #fff;
+                  color: #cf0e0f;
+                  &:hover {
+                    background-color: #fcf2f3;
+                  }
+                }
+                &.dtoff {
+                  background-color: #f6f4f7;
+                  color: #bfbebf;
+                  border: 1px solid #bfbebf;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .banner-through1 {
+    width: 1180px;
+    height: 70px;
+    overflow: hidden;
+    margin: 0 auto 20px auto;
+    a {
+      display: block;
+      img {
+        width: 1180px;
+        height: 70px;
+      }
+    }
+  }
+  .typedetail {
+    width: 1180px;
+    height: 370px;
+    background-color: @white;
+    margin: 0 auto 20px auto;
+    .t-title {
+      padding: 0 20px;
+      line-height: 60px;
+      overflow: hidden;
+      .nm {
+        float: left;
+        color: @gray-step68;
+        font-size: 20px;
+        margin-right: 12px;
+      }
+      .risk {
+        padding: 0 9px;
+        height: 18px;
+        text-align: center;
+        line-height: 18px;
+        border: 1px solid @blue-step50;
+        color: @blue-step50;
+        display: block;
+        float: left;
+        margin-top: 21px;
+        border-radius: 10px;
+        font-size: 12px;
+        margin-right: 12px;
+      }
+      .tip {
+        font-size: 14px;
+        color: @gray-step6;
+      }
+      .more {
+        float: right;
+        font-size: 12px;
+      }
+    }
+    .t-cont {
+      padding: 0 10px;
+      .modleft {
+        width: 260px;
+        float: left;
+        margin-right: 10px;
+        .l-fund {
+          padding: 8px 10px;
+          overflow: hidden;
+          line-height: 24px;
+          .left {
+            float: left;
+            .name {
+              //color: @gray-step3;
+              display: block;
+            }
+            .code {
+              color: @gray-stepa;
+            }
+          }
+          .right {
+            float: right;
+            .percent {
+              text-align: right;
+              display: block;
+            }
+            .unit {
+              color: @gray-stepa;
+            }
+          }
+          .buttom {
+            float: left;
+            line-height: 36px;
+            width: 240px;
+            .fl {
+              color: @gray-step6;
+              float: left;
+              .oldsgfl {
+                text-decoration: line-through;
+              }
+            }
+            .buy {
+              float: right;
+              margin-top: 7px;
+              a {
+                display: block;
+                width: 40px;
+                height: 22px;
+                line-height: 22px;
+                text-align: center;
+                font-size: 12px;
+                color: @white;
+                background-color: @red-stepcf;
+                border-radius: 4px;
+                &:hover{
+                  background-color: @red-stepd9;
+                }
+              }
+            }
+          }
+          &.on {
+            background-color: @gray-stepf6;
+          }
+        }
+      }
+      .modmiddle {
+        width: 490px;
+        float: left;
+        margin-right: 40px;
+        .m-title {
+          padding-left: 20px;
+          overflow: hidden;
+          line-height: 26px;
+          margin-bottom: 10px;
+          .name {
+            font-size: 16px;
+            color: @gray-step3;
+            font-weight: bold;
+            float: left;
+          }
+          .date {
+            float: right;
+            font-size: 12px;
+            color: @gray-step6;
+          }
+        }
+        .m-canvas {
+          width: 490px;
+          height: 250px;
+          background-color: @gray-stepf6;
+        }
+      }
+      .modright {
+        width: 350px;
+        float: left;
+        .m-title {
+          overflow: hidden;
+          line-height: 26px;
+          margin-bottom: 10px;
+          .name {
+            font-size: 16px;
+            color: @gray-step3;
+            font-weight: bold;
+            float: left;
+          }
+          .date {
+            float: right;
+            font-size: 12px;
+            color: @gray-step6;
+          }
+        }
+        .m-list {
+          overflow: hidden;
+          margin-bottom: 5px;
+          li {
+            float: left;
+            width: 155px;
+            line-height: 36px;
+            .unit {
+              float: left;
+              width: 72px;
+              display: block;
+              color: @gray-step6;
+              text-align: right;
+            }
+            .money {
+              float: left;
+              color: @gray-step6;
+            }
+            b {
+              float: left;
+              float: left;
+            }
+          }
+        }
+        .m-ctrl {
+          overflow: hidden;
+          line-height: 36px;
+          margin-bottom: 3px;
+          .setown {
+            float: left;
+            color: @gray-step6;
+            padding-left: 20px;
+            cursor: pointer;
+            background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-star.png') left center no-repeat;
+            cursor: pointer;
+            &.on {
+              background: url('//i.thsi.cn/images/ifund/home/ynew/fundmarket/common-staron.png') left center no-repeat;
+            }
+          }
+          .more {
+            float: right;
+            font-size: 12px;
+          }
+        }
+        .m-button {
+          overflow: hidden;
+          a {
+            width: 98px;
+            height: 30px;
+            display: block;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 3px;
+            margin-right: 10px;
+            &.buy {
+              color: @white;
+              border: 1px solid @red-stepcf;
+              background-color: @red-stepcf;
+              &:hover{
+                border: 1px solid @red-stepd9;
+                background-color: @red-stepd9;
+              }
+            }
+            &.tenplan {
+              color: @red-stepcf;
+              border: 1px solid @red-stepcf;
+              background-color: @white;
+              &:hover{
+                background-color: @red-stepfc;
+              }
+            }
+            &.open {
+              color: @gray-step6;
+              border: 1px solid @gray-step6;
+              background-color: @white;
+              &:hover{
+                background-color: @gray-stepf8;
+              }
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+  .banner-through2 {
+    width: 1180px;
+    height: 70px;
+    overflow: hidden;
+    margin: 0 auto 0 auto;
+    a {
+      display: block;
+      img {
+        width: 1180px;
+        height: 70px;
+      }
+    }
+  }
+
+}
+
+.risktip {
+  width: 1140px;
+  padding: 25px 0;
+  margin: 0 auto;
+  p {
+    color: @gray-stepa;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
