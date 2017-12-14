@@ -8,6 +8,7 @@ const $ = {
     'path': require('path'),
     'del': require('del'),
     'fs': require('fs'),
+    'express': require('express'),
 
     'concat': require('gulp-concat'), //合并文件
     'reload': require('gulp-livereload'), //实时刷新
@@ -25,7 +26,9 @@ const $ = {
     'debug': require('gulp-debug'),
     'sourcemaps': require('gulp-sourcemaps'),
     'plumber': require('gulp-plumber'), // 错误处理不影响进程
-    'util': require('gulp-util')
+    'util': require('gulp-util'),
+    'webserver': require('gulp-webserver'),
+    'browserSync': require('browser-sync')
 };
 
 const ROOT_PATH = $.path.join(__dirname),
@@ -41,17 +44,6 @@ const ROOT_PATH = $.path.join(__dirname),
         'image': 'images/*.{jpg,jpeg,gif,png,ico}'
     };
 
-//定义一个testLess任务（自定义任务名称）
-$.gulp.task('reloadcss', function() {
-    $.gulp.src('dist/ftxt/**/*.css')
-        .pipe($.reload());
-});
-$.gulp.task('reloadjs', function() {
-    $.gulp.src('dist/ftxt/**/*.js')
-        .pipe($.reload());
-});
-
-
 const Task = {},
     fc = {};
 
@@ -66,8 +58,8 @@ Task.js = () => {
         var v = $.argv.j;
         rjspack(v)
     } else {
-        $.fs.readdir(SRC_PATH, function(err, files) {
-            files.forEach(function(v, i, ar) {
+        $.fs.readdir(SRC_PATH, function (err, files) {
+            files.forEach(function (v, i, ar) {
                 rjspack(v);
             });
         });
@@ -76,12 +68,12 @@ Task.js = () => {
     $.gulp.src(`${SRC_PATH}*/${FILE_PATH.js2}`)
         .pipe($.gulp.dest(DIST_PATH));
 
-    if ($.argv.f) {
-        setTimeout(() => {
-            $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.js}`)
-                .pipe($.reload());
-        }, 5000);
-    }
+    // if ($.argv.f) {
+    //     setTimeout(() => {
+    //         $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.js}`)
+    //             .pipe($.reload());
+    //     }, 5000);
+    // }
 };
 
 rjspack = (v) => {
@@ -100,28 +92,28 @@ Task.image = () => {
 };
 
 Task.html = () => {
-    var spth = $.argv.j? $.argv.j : '*';
-    var dspth = $.argv.j? $.argv.j : '';
+    var spth = $.argv.j ? $.argv.j : '*';
+    var dspth = $.argv.j ? $.argv.j : '';
 
     $.gulp.src(`${SRC_PATH}${spth}/${FILE_PATH.html}`)
-        .pipe($.debug({ title: '编译' }))
+        .pipe($.debug({title: '编译'}))
         .pipe($.fileinclude({
             prefix: '@@',
             basepath: '@file'
         }))
         .pipe($.gulp.dest(`${DIST_PATH}${dspth}`));
 
-    if ($.argv.f) {
-        setTimeout(() => {
-            $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.html}`)
-                .pipe($.reload());
-        }, 500);
-    }
+    // if ($.argv.f) {
+    //     setTimeout(() => {
+    //         $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.html}`)
+    //             .pipe($.reload());
+    //     }, 500);
+    // }
 };
 
 Task.less = () => {
-    var spth = $.argv.j? $.argv.j : '*';
-    var dspth = $.argv.j? $.argv.j : '';
+    var spth = $.argv.j ? $.argv.j : '*';
+    var dspth = $.argv.j ? $.argv.j : '';
 
     $.gulp.src(`${SRC_PATH}${spth}/${FILE_PATH.less}`)
         .pipe($.plumber({
@@ -148,12 +140,39 @@ Task.less = () => {
     $.gulp.src(`${SRC_PATH}*/${FILE_PATH.css2}`)
         .pipe($.gulp.dest(DIST_PATH));
 
-    if ($.argv.f) {
-        setTimeout(() => {
-            $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.css}`)
-                .pipe($.reload());
-        }, 1000);
-    }
+    // if ($.argv.f) {
+    //     setTimeout(() => {
+    //         $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.css}`)
+    //             .pipe($.reload());
+    //     }, 1000);
+    // }
+};
+
+Task.port = () => {
+    const app = $.express();
+    const appData = require('./src/try/try.json');
+    const dt = appData.data;
+    const apiRouter = $.express.Router();
+    apiRouter.get('/fund', (req, res) => {
+        res.json({
+            data: dt
+        })
+    });
+    app.use('/api', apiRouter);
+
+    // var express = require('express');
+    // var app = express();
+
+    // app.get('/', function(req, res) {
+    //     res.send('Hello World!');
+    // });
+
+    const server = app.listen(3030, function () {
+        let host = server.address().address;
+        let port = server.address().port;
+
+        console.log('====>>listening at locahost:', port);
+    });
 };
 
 Task.css = () => {
@@ -179,7 +198,7 @@ Task.newFile = (file) => {
     let path = $.argv.p ? `${SRC_PATH}${$.argv.p}` : SRC_PATH;
     let fileAr = ['css', 'js', 'images', 'templates'];
 
-    fileAr.forEach(function(v, i, ar) {
+    fileAr.forEach(function (v, i, ar) {
         let url = `${path}${v}/`;
 
         if ($.fs.existsSync(url)) {
@@ -189,6 +208,18 @@ Task.newFile = (file) => {
                 process.stdout.write(err ? err : `${v} complete`);
             });
         }
+    });
+};
+
+Task.bsync = () => {
+    var path = $.argv.b ? $.argv.b + '/**' : '**';
+    $.browserSync.init({
+        files: ['./dist/' + path],
+        server: {
+            baseDir: './', // 服务器根目录
+            index: '' // 默认打开的页面
+        },
+        port: 3030
     });
 };
 
@@ -206,15 +237,14 @@ fc.errHandler = (e) => {
 
 Task.help = () => {
     process.stdout.write(`
-    $ gulp build：创建项目;
-    $ gulp webpack --folder 目录名称：打包;
-    $ gulp minifycss --folder 目录名称：处理css文件;
-    $ gulp minimages --folder 目录名称：压缩图片（暂时无效）;
-    $ gulp minifyjs --folder 目录名称：处理js文件;
-    $ gulp htmlmin --folder 目录名称：处理html文件;
-    $ gulp --folder 目录名称：进行所有功能并监听文件;
-    $ gulp nohtmlmin --folder 目录名称：进行除压缩html外所有功能并监听文件;
-    $ gulp delete --folder 目录名称：删除目标目录dist文件夹;
+    $ gulp build  创建项目，不包括image
+    $ gulp **** [-b {folder} server实时更新目录][-j {folder} 编译目标目录]
+    $ gulp server  本地server 端口3030
+    $ gulp html  编译html
+    $ gulp js  编译js
+    $ gulp less  编译less 转css
+    $ gulp image  
+    $ gulp del  删除dist 文件夹
     `);
 };
 
@@ -224,8 +254,10 @@ $.gulp.task('html', Task.html);
 $.gulp.task('less', Task.less);
 $.gulp.task('css', Task.css);
 
+$.gulp.task('port', Task.port);
 $.gulp.task('del', Task.del);
 $.gulp.task('build', Task.build);
+$.gulp.task('server', ['watch'], Task.bsync);
 
 $.gulp.task('file', Task.createFile);
 
@@ -233,7 +265,7 @@ $.gulp.task('help', Task.help);
 
 
 $.gulp.task('watch', () => {
-    $.reload.listen();
+    // $.reload.listen();
     // $.fs.watch(`${ROOT_PATH}/src/`, {recursive: false, encoding: 'buffer'}, (eventType, filename) => {
     //     if ($.fs.existsSync(`${SRC_PATH}${filename}/`) && eventType == 'rename') {
     //         console.log(100);
