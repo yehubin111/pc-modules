@@ -185,7 +185,7 @@
             var idx = this._data.index;
             var ddlength = this._data.listbox.find('dd').length;
 
-            if(ddlength === 0){
+            if (ddlength === 0) {
                 var url = '//search.10jqka.com.cn/search?tid=info&qs=box_ths&w=' + this._data.keyword;
                 window.open(url);
                 return;
@@ -220,6 +220,8 @@
             var self = this;
 
             $.each(data, function (i, v) {
+                var type = self._data.type[i];
+
                 if (v.length === 0) {
                     other += '<dl class="sh-line" data-key="' + self._data.type[i] + '">';
                     other += '<dt class="sh-title">相关 <b>' + self._data.namelist[i].name + '</b> 搜索结果为0</dt>';
@@ -241,7 +243,11 @@
                     else if (getnmKwd)
                         kname = kname.replace(getnmKwd[0], '<em>' + getnmKwd[0] + '</em>');
 
-                    str += '<dd class="sh-info" data-code="' + vl.code + '"><span>' + kcode + '</span>' + kname + '</dd>'
+                    // 固收特殊情况，需要传递startdate开放日期
+                    if (type == 'ijjfifund') {
+                        str += '<dd class="sh-info" data-code="' + vl.code + '" data-sday="' + vl.startdate.replace(/\-/g, '') + '"><span>' + kcode + '</span>' + kname + '</dd>';
+                    } else
+                        str += '<dd class="sh-info" data-code="' + vl.code + '"><span>' + kcode + '</span>' + kname + '</dd>'
                 });
                 str += '</dl>';
             });
@@ -261,9 +267,10 @@
             skip: function (target) {
                 var key = $(target).parent().attr('data-key'),
                     url = this.tools.keyToName(key).url,
-                    code = $(target).attr('data-code');
+                    code = $(target).attr('data-code'),
+                    startday = $(target).attr('data-sday');
 
-                window.open(url.replace('{code}', code));
+                window.open(url.replace('{code}', code).replace('{startday}', startday));
             },
             trig: function (target) {
                 var idx = this._data.listbox.find('dd').index($(target));
@@ -308,7 +315,7 @@
                     case 'ijjfifund':
                         info = {
                             name: '固收',
-                            url: 'http://fund.10jqka.com.cn/public/webgs/funddetail.html?fundCode={code}&openday='
+                            url: 'http://fund.10jqka.com.cn/public/webgs/funddetail.html?fundCode={code}&openday={startday}'
                         };
                         break;
                     case 'stock':
