@@ -302,12 +302,13 @@
 
         pageSwitch.prototype = {
             /**
-             * 2017/10/18 新增功能 同一个地方更新页码，初始化插件
+             * 2017/10/18 新增功能 同一个地方更新页码和总条数，初始化插件
              */
-            setPageTotal: function (page) {
+            setPageTotal: function (page, dtotal) {
                 var self = this;
 
                 self.opt.pageTotal = page;
+                self.opt.dataTotal = dtotal;
                 self.choiceSwitch(self.opt.nowType, self.opt.nowPage);
             }
         };
