@@ -63,6 +63,7 @@
             this._data.listbox = $(this.dom.disId);
             this._data.button = $(this.dom.btnId);
             this._data.ajaxProcess = null;
+            this._data.keyword = '';
 
             $.each(this._data.type, function (i, v) {
                 var name = self.tools.keyToName(v);
@@ -99,6 +100,29 @@
                         self._data.blurCallback();
                 }
             });
+
+            /**
+             * 20180108新增 IE9下 delete cut backspace不触发input事件
+             */
+            if(navigator.userAgent.toLowerCase().indexOf('msie') > -1 && navigator.appVersion.split(";")[1].replace(/[ ]/g,"") === "MSIE9.0"){
+                this._data.target.off('input propertychange').on({
+                    'keyup': function (e) {
+                        var ts = this;
+                        clearTimeout(self._data.runFunc);
+
+                        self._data.runFunc = setTimeout(function () {
+                            // 终止前一次未执行完的请求
+                            if (self._data.ajaxProcess) {
+                                self._data.ajaxProcess.abort();
+                            }
+                            self.getInput.call(self, ts);
+                        }, 300);
+                    }
+                });
+            }
+            /**
+             * end
+             */
 
             //是否有回调
             if (this.idEstimate())
