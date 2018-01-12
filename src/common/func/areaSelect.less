@@ -1,0 +1,92 @@
+.selectAreabox {
+  width: 378px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, .2);
+  .c_Nav {
+    overflow: hidden;
+    background-color: #f0f0f0;
+    li {
+      float: left;
+      line-height: 41px;
+      text-align: center;
+      width: 102px;
+      color: #666;
+      cursor: pointer;
+      &.on {
+        background-color: #fff;
+        color: #4489ca;
+      }
+    }
+  }
+  .c_Box {
+    .sProvince {
+      padding: 19px 15px 3px 15px;
+      ._line {
+        overflow: hidden;
+        font-size: 12px;
+        margin-bottom: 15px;
+        color: #666;
+        .l_letter {
+          float: left;
+          width: 36px;
+          text-align: left;
+          line-height: 20px;
+        }
+        .l_prov {
+          width: 300px;
+          float: left;
+          li {
+            float: left;
+            line-height: 20px;
+            height: 20px;
+            cursor: pointer;
+            padding: 0 6px;
+            margin-right: 10px;
+            margin-bottom: 2px;
+            color: #666;
+            white-space: nowrap;
+            &:hover {
+              background-color: #4489ca;
+              color: #fff;
+            }
+            &.on{
+              background-color: #4489ca;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    .sCity, .sArea{
+      padding: 14px 15px 10px 15px;
+      ul{
+        overflow: hidden;
+        li{
+          float: left;
+          line-height: 20px;
+          padding: 0 6px;
+          color: #666;
+          margin-right: 10px;
+          font-size: 12px;
+          margin-bottom: 4px;
+          white-space: nowrap;
+          cursor: pointer;
+          &:hover {
+            background-color: #4489ca;
+            color: #fff;
+          }
+          &.on{
+            background-color: #4489ca;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .default{
+      line-height: 80px;
+      color: #666;
+      font-size: 12px;
+    }
+  }
+}
