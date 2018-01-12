@@ -12,7 +12,7 @@ define([], function () {
             tplace: 'center'  // center left right top bottom
         };
 
-        this.length = 0;
+        this.hash = parseInt(Math.random() * 10000000);
 
         this.init(options);
 
@@ -42,13 +42,13 @@ define([], function () {
             var ch = (pheight - this.opts.picHeight) / 2;
             switch (this.opts.tplace) {
                 case 'center':
-                    styles += 'top: ' + (ch - 10) + 'px;left:' + cw + 'px;';
+                    styles += 'top: ' + ch + 'px;left:' + cw + 'px;';
                     break;
                 case 'left':
-                    styles += 'top: ' + (ch - 10) + 'px;left:0px;';
+                    styles += 'top: ' + ch + 'px;left:0px;';
                     break;
                 case 'right':
-                    styles += 'top: ' + (ch - 10) + 'px;right:0px;';
+                    styles += 'top: ' + ch + 'px;right:0px;';
                     break;
                 case 'top':
                     styles += 'top: 0px;left:' + cw + 'px;';
@@ -58,7 +58,7 @@ define([], function () {
                     break;
             }
 
-            var str = '<img src="' + this.opts.picUrl + '" alt="" id="' + this.opts.picId + '_' + this.length + '" style="' + styles + '" width="' + this.opts.picWidth + '" height="' + this.opts.picHeight + '"/>';
+            var str = '<img src="' + this.opts.picUrl + '" alt="" id="' + this.opts.picId + '_' + this.hash + '" style="' + styles + '" width="' + this.opts.picWidth + '"/>';
 
             $(this.opts.boxId).html(str);
         }
