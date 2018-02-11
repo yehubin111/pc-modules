@@ -2,36 +2,21 @@
  * Created by 2016101901 on 2017/4/7.
  */
 //导入工具包 require('node_modules里对应模块')
-const $ = {
+const _ = {
     'gulp': require('gulp'), //本地安装gulp所用到的地方
     'argv': require('yargs').argv,
     'path': require('path'),
     'del': require('del'),
     'fs': require('fs'),
     'express': require('express'),
-
-    'concat': require('gulp-concat'), //合并文件
-    'reload': require('gulp-livereload'), //实时刷新
-    'rev': require('gulp-rev-append'), //添加版本号
-    'cssclean': require('gulp-clean-css'), //CSS压缩
-    'cssrev': require('gulp-make-css-url-version'), //css里的URL添加版本号
-    'less': require('gulp-less'), //less编译
-    'base64': require('gulp-base64'), //图片转换成base64
-    'cssimport': require('gulp-cssimport'), //css import
-    'imagemin': require('gulp-imagemin'), //图片压缩
-    'autoprefixer': require('gulp-autoprefixer'), //自动补全私有前缀
-    'fileinclude': require('gulp-file-include'), //html模块化
-    'requirejsOptimize': require('gulp-requirejs-optimize'), //requirejs
-    'requireConfig': require('./require.config.js'),
-    'debug': require('gulp-debug'),
-    'sourcemaps': require('gulp-sourcemaps'),
-    'plumber': require('gulp-plumber'), // 错误处理不影响进程
-    'util': require('gulp-util'),
-    'webserver': require('gulp-webserver'),
-    'browserSync': require('browser-sync')
+    'browserSync': require('browser-sync'),
+    'requireConfig': require('./require.config.js')
 };
+const $ = require('gulp-load-plugins')();
 
-const ROOT_PATH = $.path.join(__dirname),
+var env = '';
+
+const ROOT_PATH = _.path.join(__dirname),
     SRC_PATH = `${ROOT_PATH}/src/`,
     DIST_PATH = `${ROOT_PATH}/dist/`,
     FILE_PATH = {
@@ -48,74 +33,71 @@ const Task = {},
     fc = {};
 
 Task.del = () => {
-    $.del([DIST_PATH]).then(() => {
+    _.del([DIST_PATH]).then(() => {
         process.stdout.write('clean complete');
     });
 };
 
 Task.js = () => {
-    if ($.argv.j) {
-        var v = $.argv.j;
+    if (_.argv.j) {
+        var v = _.argv.j;
         rjspack(v)
     } else {
-        $.fs.readdir(SRC_PATH, function (err, files) {
+        _.fs.readdir(SRC_PATH, function (err, files) {
             files.forEach(function (v, i, ar) {
                 rjspack(v);
             });
         });
     }
 
-    $.gulp.src(`${SRC_PATH}*/${FILE_PATH.js2}`)
-        .pipe($.gulp.dest(DIST_PATH));
-
-    // if ($.argv.f) {
-    //     setTimeout(() => {
-    //         $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.js}`)
-    //             .pipe($.reload());
-    //     }, 5000);
-    // }
+    _.gulp.src(`${SRC_PATH}*/${FILE_PATH.js2}`)
+        .pipe(_.gulp.dest(DIST_PATH));
 };
 
 rjspack = (v) => {
-    $.gulp.src(`${SRC_PATH}${v}/${FILE_PATH.js}`)
-        .pipe($.plumber({
-            errorHandler: fc.errHandler
-        }))
-        .pipe($.requirejsOptimize($.requireConfig[v]))
-        .pipe($.gulp.dest(`${DIST_PATH}${v}/js`));
-}
+    if (env == 'development') {
+        _.gulp.src(`${SRC_PATH}${v}/${FILE_PATH.js}`)
+            .pipe($.plumber({
+                errorHandler: fc.errHandler
+            }))
+            .pipe($.sourcemaps.init())
+            .pipe($.requirejsOptimize(_.requireConfig[v]))
+            .pipe($.sourcemaps.write())
+            .pipe(_.gulp.dest(`${DIST_PATH}${v}/js`));
+    } else {
+        _.gulp.src(`${SRC_PATH}${v}/${FILE_PATH.js}`)
+            .pipe($.plumber({
+                errorHandler: fc.errHandler
+            }))
+            .pipe($.requirejsOptimize(_.requireConfig[v]))
+            .pipe(_.gulp.dest(`${DIST_PATH}${v}/js`));
+    }
+};
 
 Task.image = () => {
-    $.gulp.src(`${SRC_PATH}*/${FILE_PATH.image}`)
+    _.gulp.src(`${SRC_PATH}*/${FILE_PATH.image}`)
         .pipe($.imagemin())
-        .pipe($.gulp.dest(DIST_PATH));
+        .pipe(_.gulp.dest(DIST_PATH));
 };
 
 Task.html = () => {
-    var spth = $.argv.j ? $.argv.j : '*';
-    var dspth = $.argv.j ? $.argv.j : '';
+    var spth = _.argv.j ? _.argv.j : '*';
+    var dspth = _.argv.j ? _.argv.j : '';
 
-    $.gulp.src(`${SRC_PATH}${spth}/${FILE_PATH.html}`)
+    _.gulp.src(`${SRC_PATH}${spth}/${FILE_PATH.html}`)
         .pipe($.debug({title: '编译'}))
-        .pipe($.fileinclude({
+        .pipe($.fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe($.gulp.dest(`${DIST_PATH}${dspth}`));
-
-    // if ($.argv.f) {
-    //     setTimeout(() => {
-    //         $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.html}`)
-    //             .pipe($.reload());
-    //     }, 500);
-    // }
+        .pipe(_.gulp.dest(`${DIST_PATH}${dspth}`));
 };
 
 Task.less = () => {
-    var spth = $.argv.j ? $.argv.j : '*';
-    var dspth = $.argv.j ? $.argv.j : '';
+    var spth = _.argv.j ? _.argv.j : '*';
+    var dspth = _.argv.j ? _.argv.j : '';
 
-    $.gulp.src(`${SRC_PATH}${spth}/${FILE_PATH.less}`)
+    _.gulp.src(`${SRC_PATH}${spth}/${FILE_PATH.less}`)
         .pipe($.plumber({
             errorHandler: fc.errHandler
         }))
@@ -129,43 +111,29 @@ Task.less = () => {
             maxImageSize: 32 * 1024, // bytes
             debug: true
         }))
-        .pipe($.cssclean({
+        .pipe($.cleanCss({
             compatibility: 'ie7',
             keepBreaks: true, //保留换行
             keepSpecialComments: '*' //保留私有前缀
         }))
         // .pipe($.sourcemaps.write())
-        .pipe($.gulp.dest(`${DIST_PATH}${dspth}`));
+        .pipe(_.gulp.dest(`${DIST_PATH}${dspth}`));
 
-    $.gulp.src(`${SRC_PATH}*/${FILE_PATH.css2}`)
-        .pipe($.gulp.dest(DIST_PATH));
-
-    // if ($.argv.f) {
-    //     setTimeout(() => {
-    //         $.gulp.src(`${DIST_PATH}${$.argv.f}/${FILE_PATH.css}`)
-    //             .pipe($.reload());
-    //     }, 1000);
-    // }
+    _.gulp.src(`${SRC_PATH}*/${FILE_PATH.css2}`)
+        .pipe(_.gulp.dest(DIST_PATH));
 };
 
 Task.port = () => {
-    const app = $.express();
+    const app = _.express();
     const appData = require('./src/try/try.json');
     const dt = appData.data;
-    const apiRouter = $.express.Router();
+    const apiRouter = _.express.Router();
     apiRouter.get('/fund', (req, res) => {
         res.json({
             data: dt
         })
     });
     app.use('/api', apiRouter);
-
-    // var express = require('express');
-    // var app = express();
-
-    // app.get('/', function(req, res) {
-    //     res.send('Hello World!');
-    // });
 
     const server = app.listen(3030, function () {
         let host = server.address().address;
@@ -176,35 +144,35 @@ Task.port = () => {
 };
 
 Task.css = () => {
-    $.gulp.src(`${SRC_PATH}*/${FILE_PATH.css}`)
-        .pipe($.gulp.dest(DIST_PATH));
+    _.gulp.src(`${SRC_PATH}*/${FILE_PATH.css}`)
+        .pipe(_.gulp.dest(DIST_PATH));
 };
 
 Task.build = () => {
-    $.del([DIST_PATH]).then(() => {
+    _.del([DIST_PATH]).then(() => {
         process.stdout.write('clean complete');
 
-        $.gulp.start('html');
-        $.gulp.start('less');
-        $.gulp.start('js');
-        $.gulp.start('image');
+        _.gulp.start('html');
+        _.gulp.start('less');
+        _.gulp.start('js');
+        _.gulp.start('image');
     });
 };
 
 Task.newFile = (file) => {
     if (file) {
-        $.argv.p = file;
+        _.argv.p = file;
     }
-    let path = $.argv.p ? `${SRC_PATH}${$.argv.p}` : SRC_PATH;
+    let path = _.argv.p ? `${SRC_PATH}${$.argv.p}` : SRC_PATH;
     let fileAr = ['css', 'js', 'images', 'templates'];
 
     fileAr.forEach(function (v, i, ar) {
         let url = `${path}${v}/`;
 
-        if ($.fs.existsSync(url)) {
+        if (_.fs.existsSync(url)) {
             process.stdout.write(`${v} already`);
         } else {
-            $.fs.mkdir(url, (err) => {
+            _.fs.mkdir(url, (err) => {
                 process.stdout.write(err ? err : `${v} complete`);
             });
         }
@@ -212,11 +180,11 @@ Task.newFile = (file) => {
 };
 
 Task.bsync = () => {
-    var path = $.argv.b ? $.argv.b + '/**' : '**';
-    $.browserSync.init({
+    var path = _.argv.b ? _.argv.b + '/**' : '**';
+    _.browserSync.init({
         files: ['./dist/' + path],
         server: {
-            baseDir: './', // 服务器根目录
+            baseDir: './dist', // 服务器根目录
             index: '' // 默认打开的页面
         },
         port: 3030
@@ -228,8 +196,6 @@ Task.createFile = () => {
 };
 
 fc.errHandler = (e) => {
-    // 发出声音提示
-    $.util.beep();
     // 输出错误信息
     $.util.log(e);
 };
@@ -248,23 +214,23 @@ Task.help = () => {
     `);
 };
 
-$.gulp.task('js', Task.js);
-$.gulp.task('image', Task.image);
-$.gulp.task('html', Task.html);
-$.gulp.task('less', Task.less);
-$.gulp.task('css', Task.css);
+_.gulp.task('js', Task.js);
+_.gulp.task('image', Task.image);
+_.gulp.task('html', Task.html);
+_.gulp.task('less', Task.less);
+_.gulp.task('css', Task.css);
 
-$.gulp.task('port', Task.port);
-$.gulp.task('del', Task.del);
-$.gulp.task('build', Task.build);
-$.gulp.task('server', ['watch'], Task.bsync);
+_.gulp.task('port', Task.port);
+_.gulp.task('del', Task.del);
+_.gulp.task('build', Task.build);
+_.gulp.task('server', ['watch'], Task.bsync);
 
-$.gulp.task('file', Task.createFile);
+_.gulp.task('file', Task.createFile);
 
-$.gulp.task('help', Task.help);
+_.gulp.task('help', Task.help);
 
 
-$.gulp.task('watch', () => {
+_.gulp.task('watch', () => {
     // $.reload.listen();
     // $.fs.watch(`${ROOT_PATH}/src/`, {recursive: false, encoding: 'buffer'}, (eventType, filename) => {
     //     if ($.fs.existsSync(`${SRC_PATH}${filename}/`) && eventType == 'rename') {
@@ -274,8 +240,9 @@ $.gulp.task('watch', () => {
     //         console.log(`${filename}--${eventType}`);
     //     }
     // });
+    env = 'development';
 
-    $.gulp.watch('src/*/**/*.less', ['less']);
-    $.gulp.watch('src/*/**/*.js', ['js']);
-    $.gulp.watch('src/*/*.html', ['html']);
+    _.gulp.watch('src/*/**/*.less', ['less']);
+    _.gulp.watch('src/*/**/*.js', ['js']);
+    _.gulp.watch('src/*/*.html', ['html']);
 });
