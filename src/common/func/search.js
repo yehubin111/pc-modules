@@ -17,11 +17,25 @@
             placeholder: '请输入代码、简称或拼音',  // input默认内容
             count: '5', // 单个模块条数
             searchBtnFont: '搜索',  // 搜索按钮文字
+            otherKey: '',  // 当一个页面出现两个搜索框的时候，区别ID用
             ifCss: false,  // 是否需要自动添加CSS，默认不添加
             successCallback: null, // 回调函数，返回搜索结果数据
             focusCallback: null,
             blurCallback: null
         };
+
+        /**
+         * 20180227新增，同个页面多个搜索框情况，id与class分开
+         */
+        this.domClass = {
+            iptId: 'sh-input',  // 输入框class， 默认sh-input
+            disId: 'sh-result',  // 搜索结果class，默认sh-result
+            btnId: 'sh-button',  // 搜索按钮class，默认sh-button
+            boxId: 'searchBox'  // 搜索框class，默认searchBox
+        };
+        /**
+         * end
+         */
 
         this.dom = {
             iptId: '#sh-input',  // 输入框ID， 默认#sh-input
@@ -44,6 +58,18 @@
             var self = this;
 
             this.opts = $.extend({}, this.defaults, options);
+            /**
+             * 20180227新增，同个页面多个搜索框情况，id添加模块关键字
+             */
+            this.dom = {
+                iptId: '#sh-input' + this.opts.otherKey,
+                disId: '#sh-result' + this.opts.otherKey,
+                btnId: '#sh-button' + this.opts.otherKey,
+                boxId: '#searchBox' + this.opts.otherKey
+            };
+            /**
+             * end
+             */
 
             // 添加CSS
             if (this.opts.ifCss)
@@ -157,12 +183,12 @@
             $(this.opts.searchId).append(str);
         },
         addInput: function () {
-            var str = '<div class="' + this.dom.boxId.replace('#', '') + '" id="' + this.dom.boxId.replace('#', '') + '">';
-            str += '<input value="' + this.opts.placeholder + '" type="text"  class="' + this.dom.iptId.replace('#', '') + '" id="' + this.dom.iptId.replace('#', '') + '" style="color:#999;">';
-            str += '<span class="' + this.dom.btnId.replace('#', '') + '" id="' + this.dom.btnId.replace('#', '') + '">' + this.opts.searchBtnFont + '</span>';
+            var str = '<div class="' + this.domClass.boxId.replace('#', '') + '" id="' + this.dom.boxId.replace('#', '') + '">';
+            str += '<input value="' + this.opts.placeholder + '" type="text"  class="' + this.domClass.iptId.replace('#', '') + '" id="' + this.dom.iptId.replace('#', '') + '" style="color:#999;">';
+            str += '<span class="' + this.domClass.btnId.replace('#', '') + '" id="' + this.dom.btnId.replace('#', '') + '">' + this.opts.searchBtnFont + '</span>';
             //是否有回调
             if (!this.idEstimate())
-                str += '<div class="' + this.dom.disId.replace('#', '') + '" id="' + this.dom.disId.replace('#', '') + '" style="display: none;"></div>';
+                str += '<div class="' + this.domClass.disId.replace('#', '') + '" id="' + this.dom.disId.replace('#', '') + '" style="display: none;"></div>';
             str += '</div>';
             $(this.opts.searchId).append(str);
         },
